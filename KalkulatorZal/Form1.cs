@@ -78,9 +78,8 @@ namespace KalkulatorZal
         private void equalsButton_Click(object sender, EventArgs e)
         {
             // CALCULATE
-           
-            searchForBrackets(displayTextBox.Text,0);
-
+            Calculate calculate = new Calculate(displayTextBox.Text);
+            displayTextBox.Text  = calculate.searchForBrackets();
             FontSize(displayLabel.Text.Length);
         }
 
@@ -262,7 +261,7 @@ namespace KalkulatorZal
         {
             for (int i = 0; i < tempEquation.Length; i++)//Poszukiwanie kolejnych znaków.
             {
-                if (char.IsSymbol(tempEquation[i]))
+                if (char.IsSymbol(tempEquation[i])) 
                 {
                     Priority(equation, tempEquation, 0);
                 }
