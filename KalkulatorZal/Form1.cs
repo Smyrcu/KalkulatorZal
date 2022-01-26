@@ -16,8 +16,6 @@ namespace KalkulatorZal
     {
         private bool add = false;
         bool positive = true;
-        bool newCalculation = false;
-
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +24,7 @@ namespace KalkulatorZal
         private void Form1_Load(object sender, EventArgs e)
         {
 
-
+            
         }
 
         private void FontSize(int lenght)
@@ -68,33 +66,22 @@ namespace KalkulatorZal
 
         private void actionButton_Click(object sender, EventArgs e)
         {
-            if (newCalculation)
-            {
-
                 displayTextBox.Text += displayLabel.Text;
                 displayTextBox.Text += ((Button)sender).Text;
                 add = false;
                 positive = true;
-            }
-            else
-            {
-                displayTextBox.Text += displayLabel.Text;
-                displayTextBox.Text += ((Button)sender).Text;
-                add = false;
-                positive = true;
-            }
-            
-
         }
 
         private void equalsButton_Click(object sender, EventArgs e)
         {
             // CALCULATE
             displayTextBox.Text += displayLabel.Text;
-            displayLabel.Text = "0";
+            
             Calculate calculate = new Calculate(displayTextBox.Text);
             displayTextBox.Text  = calculate.check();
             FontSize(displayLabel.Text.Length);
+            displayLabel.Text = "0";
+            add = false;
         }
 
         private void clearButton_Click(object sender, EventArgs e)

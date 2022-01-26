@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using static KalkulatorZal.Form1;
-using System.Text.RegularExpressions;
-using System.Reflection;
 
 namespace KalkulatorZal
 {
@@ -23,7 +21,6 @@ namespace KalkulatorZal
         int tester = 0;
         public Calculate(string equation)
         {
-           // stringBuilder = new StringBuilder(equation);
             this.equation = equation;
             index = 0;
         }
@@ -50,10 +47,7 @@ namespace KalkulatorZal
     
         
         public string searchForBrackets()
-        {
-
-            /*
-            int bracketOpenCount = 0;*/
+        { 
             int indexOfLastOpenBracket = 0;
             for (int a = 0; a < parenthesisCount; a++) {
                 for (int i = index; i < equation.Length; i++)
@@ -70,8 +64,18 @@ namespace KalkulatorZal
                         tempEquation = tempEquation.Remove(i - (indexOfLastOpenBracket - 1), tempEquation.Length - (i - (indexOfLastOpenBracket - 1)));
                         for (int j = 0; j < tempEquation.Length; j++)
 {
-                            if (tempEquation[j] == '*' || tempEquation[j] == '/' || tempEquation[j] == '+' || tempEquation[j] == '-') counter++;
-                            //obliczanie ilości działań
+                            if (tempEquation[j] == '*' || tempEquation[j] == '/' || tempEquation[j] == '+' || tempEquation[j] == '-') counter++; //obliczanie ilości działań
+                            try
+                            {
+                                if ((tempEquation[j] == '*' || tempEquation[j] == '/' || tempEquation[j] == '+' || tempEquation[j] == '-') &&
+                                    (tempEquation[j - 1] == '*' || tempEquation[j - 1] == '/' || tempEquation[j - 1] == '+' ||
+                                     tempEquation[j - 1] == '-' || tempEquation[j - 1] == '(')) counter--; // liczba ujemna                                                                                                     
+                            }
+                            catch (IndexOutOfRangeException)
+                            {
+
+                            }
+                            
                         }
                         for (int k = 0; k<counter; k++) {Priority(0); a = -1; }
                         counter = 0;
@@ -87,6 +91,17 @@ namespace KalkulatorZal
             for (int j = 0; j < tempEquation.Length; j++)
             {
                 if (tempEquation[j] == '*' || tempEquation[j] == '/' || tempEquation[j] == '+' || tempEquation[j] == '-') counter++;
+                try
+                {
+                    if ((tempEquation[j] == '*' || tempEquation[j] == '/' || tempEquation[j] == '+' || tempEquation[j] == '-') &&
+                        (tempEquation[j - 1] == '*' || tempEquation[j - 1] == '/' || tempEquation[j - 1] == '+' ||
+                        tempEquation[j - 1] == '-' || tempEquation[j - 1] == '(')) counter--; // liczba ujemna
+                }
+                catch (IndexOutOfRangeException)
+                {
+
+                }
+                
                 //obliczanie ilości działań
             }
             for (int l = 0; l < counter; l++) { Priority(0); }
@@ -103,11 +118,7 @@ namespace KalkulatorZal
             char symbol;
             int[] numbers = new int[2];
             int currentresult;
-            
-            
-            
-            
-
+         
             for (int r = 0; r < counter; r++)
             {
 
@@ -155,7 +166,7 @@ namespace KalkulatorZal
                         /* equation = equation.Replace($"{numbers[0]}{symbol}{numbers[1]}", currentresult.ToString());*/
                         tempEquation = tempEquation.Replace($"{numbers[0]}{symbol}{numbers[1]}", currentresult.ToString());
                         tester++;
-                        if (tester == counter)
+                        if (tester == counter && parenthesisCount > 0)
                         {
                             equation = equation.Replace($"({oldPart})", tempEquation.Remove(0,1).Remove(tempEquation.Length-2,1));
                             tester = 0;
@@ -201,18 +212,32 @@ namespace KalkulatorZal
             {
                 for (int j = start - 1; j >= 0; j--) // Liczba z lewej
                 {
-                    if (char.IsDigit(tempEquation[j]))
+                    try
                     {
-                        number1String = tempEquation[j] + number1String;
-                    }
-                    else
+                        if (char.IsDigit(tempEquation[j]) || (tempEquation[j] == '-' && !char.IsDigit(tempEquation[j-1])))
+                        {
+                            number1String = tempEquation[j] + number1String;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }catch (IndexOutOfRangeException)
                     {
-                        break;
+                        if (char.IsDigit(tempEquation[j]))
+                        {
+                            number1String = tempEquation[j] + number1String;
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
+                    
                 }
                 for (int j = start + 1; j < tempEquation.Length; j++) // Liczba z prawej
                 {
-                    if (char.IsDigit(tempEquation[j]))
+                    if (char.IsDigit(tempEquation[j]) || (tempEquation[j] == '-' && j == (start+1)))
                     {
                         number2String += tempEquation[j];
                     }
