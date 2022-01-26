@@ -16,7 +16,7 @@ namespace KalkulatorZal
     {
         private bool add = false;
         bool positive = true;
-        
+        bool newCalculation = false;
 
         public Form1()
         {
@@ -68,18 +68,32 @@ namespace KalkulatorZal
 
         private void actionButton_Click(object sender, EventArgs e)
         {
-            displayTextBox.Text += displayLabel.Text;
-            displayTextBox.Text += ((Button)sender).Text;
-            add = false;
-            positive = true;
+            if (newCalculation)
+            {
+
+                displayTextBox.Text += displayLabel.Text;
+                displayTextBox.Text += ((Button)sender).Text;
+                add = false;
+                positive = true;
+            }
+            else
+            {
+                displayTextBox.Text += displayLabel.Text;
+                displayTextBox.Text += ((Button)sender).Text;
+                add = false;
+                positive = true;
+            }
+            
 
         }
 
         private void equalsButton_Click(object sender, EventArgs e)
         {
             // CALCULATE
+            displayTextBox.Text += displayLabel.Text;
+            displayLabel.Text = "0";
             Calculate calculate = new Calculate(displayTextBox.Text);
-            displayTextBox.Text  = calculate.searchForBrackets();
+            displayTextBox.Text  = calculate.check();
             FontSize(displayLabel.Text.Length);
         }
 

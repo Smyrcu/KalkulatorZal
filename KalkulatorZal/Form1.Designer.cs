@@ -354,7 +354,7 @@ namespace KalkulatorZal
             this.displayTextBox.Name = "displayTextBox";
             this.displayTextBox.Size = new System.Drawing.Size(320, 48);
             this.displayTextBox.TabIndex = 23;
-            this.displayTextBox.Text = "1+(2+3)+4";
+            this.displayTextBox.Text = "1+((1+1)+2+3)+4";
             // 
             // Form1
             // 
