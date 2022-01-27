@@ -37,49 +37,49 @@ namespace KalkulatorZal
             this.ósemkowyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayLabel = new System.Windows.Forms.Label();
-            this.nubmerButton7 = new System.Windows.Forms.Button();
-            this.nubmerButton8 = new System.Windows.Forms.Button();
-            this.nubmerButton9 = new System.Windows.Forms.Button();
-            this.nubmerButton6 = new System.Windows.Forms.Button();
-            this.nubmerButton5 = new System.Windows.Forms.Button();
-            this.nubmerButton4 = new System.Windows.Forms.Button();
-            this.nubmerButton3 = new System.Windows.Forms.Button();
-            this.nubmerButton2 = new System.Windows.Forms.Button();
-            this.nubmerButton1 = new System.Windows.Forms.Button();
+            this.numberButton7 = new System.Windows.Forms.Button();
+            this.numberButton8 = new System.Windows.Forms.Button();
+            this.numberButton9 = new System.Windows.Forms.Button();
+            this.numberButton6 = new System.Windows.Forms.Button();
+            this.numberButton5 = new System.Windows.Forms.Button();
+            this.numberButton4 = new System.Windows.Forms.Button();
+            this.numberButton3 = new System.Windows.Forms.Button();
+            this.numberButton2 = new System.Windows.Forms.Button();
+            this.numberButton1 = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.multiplyButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.equalsButton = new System.Windows.Forms.Button();
             this.subtractButton = new System.Windows.Forms.Button();
             this.dotButton = new System.Windows.Forms.Button();
-            this.nubmerButton0 = new System.Windows.Forms.Button();
+            this.numberButton0 = new System.Windows.Forms.Button();
             this.positiveNegativeButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.resetLastButton = new System.Windows.Forms.Button();
             this.divideButton = new System.Windows.Forms.Button();
             this.displayTextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.powButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.lnButton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.logButton = new System.Windows.Forms.Button();
+            this.sqrtButton = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.reciprocalButton = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
+            this.factorialButton = new System.Windows.Forms.Button();
+            this.decRadioButton = new System.Windows.Forms.RadioButton();
+            this.hexRadioButton = new System.Windows.Forms.RadioButton();
+            this.binRadioButton = new System.Windows.Forms.RadioButton();
+            this.octRadioButton = new System.Windows.Forms.RadioButton();
+            this.rightBracketButton = new System.Windows.Forms.Button();
+            this.leftBracketButton = new System.Windows.Forms.Button();
+            this.numberButtonE = new System.Windows.Forms.Button();
+            this.numberButtonA = new System.Windows.Forms.Button();
+            this.numberButtonB = new System.Windows.Forms.Button();
+            this.numberButtonC = new System.Windows.Forms.Button();
+            this.numberButtonD = new System.Windows.Forms.Button();
+            this.numberButtonF = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
@@ -116,25 +116,25 @@ namespace KalkulatorZal
             // dziesiętnyToolStripMenuItem
             // 
             this.dziesiętnyToolStripMenuItem.Name = "dziesiętnyToolStripMenuItem";
-            this.dziesiętnyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dziesiętnyToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.dziesiętnyToolStripMenuItem.Text = "Dziesiętny";
             // 
             // szestnastkowyToolStripMenuItem
             // 
             this.szestnastkowyToolStripMenuItem.Name = "szestnastkowyToolStripMenuItem";
-            this.szestnastkowyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.szestnastkowyToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.szestnastkowyToolStripMenuItem.Text = "Szestnastkowy";
             // 
             // binarnyToolStripMenuItem
             // 
             this.binarnyToolStripMenuItem.Name = "binarnyToolStripMenuItem";
-            this.binarnyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.binarnyToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.binarnyToolStripMenuItem.Text = "Binarny";
             // 
             // ósemkowyToolStripMenuItem
             // 
             this.ósemkowyToolStripMenuItem.Name = "ósemkowyToolStripMenuItem";
-            this.ósemkowyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ósemkowyToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.ósemkowyToolStripMenuItem.Text = "Ósemkowy";
             // 
             // infoToolStripMenuItem
@@ -156,104 +156,104 @@ namespace KalkulatorZal
             this.displayLabel.Text = "0";
             this.displayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // nubmerButton7
+            // numberButton7
             // 
-            this.nubmerButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nubmerButton7.Location = new System.Drawing.Point(66, 330);
-            this.nubmerButton7.Name = "nubmerButton7";
-            this.nubmerButton7.Size = new System.Drawing.Size(50, 50);
-            this.nubmerButton7.TabIndex = 3;
-            this.nubmerButton7.Text = "7";
-            this.nubmerButton7.UseVisualStyleBackColor = true;
-            this.nubmerButton7.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButton7.Location = new System.Drawing.Point(66, 330);
+            this.numberButton7.Name = "numberButton7";
+            this.numberButton7.Size = new System.Drawing.Size(50, 50);
+            this.numberButton7.TabIndex = 3;
+            this.numberButton7.Text = "7";
+            this.numberButton7.UseVisualStyleBackColor = true;
+            this.numberButton7.Click += new System.EventHandler(this.ButtonClick);
             // 
-            // nubmerButton8
+            // numberButton8
             // 
-            this.nubmerButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nubmerButton8.Location = new System.Drawing.Point(122, 330);
-            this.nubmerButton8.Name = "nubmerButton8";
-            this.nubmerButton8.Size = new System.Drawing.Size(50, 50);
-            this.nubmerButton8.TabIndex = 4;
-            this.nubmerButton8.Text = "8";
-            this.nubmerButton8.UseVisualStyleBackColor = true;
-            this.nubmerButton8.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButton8.Location = new System.Drawing.Point(122, 330);
+            this.numberButton8.Name = "numberButton8";
+            this.numberButton8.Size = new System.Drawing.Size(50, 50);
+            this.numberButton8.TabIndex = 4;
+            this.numberButton8.Text = "8";
+            this.numberButton8.UseVisualStyleBackColor = true;
+            this.numberButton8.Click += new System.EventHandler(this.ButtonClick);
             // 
-            // nubmerButton9
+            // numberButton9
             // 
-            this.nubmerButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nubmerButton9.Location = new System.Drawing.Point(178, 330);
-            this.nubmerButton9.Name = "nubmerButton9";
-            this.nubmerButton9.Size = new System.Drawing.Size(50, 50);
-            this.nubmerButton9.TabIndex = 5;
-            this.nubmerButton9.Text = "9";
-            this.nubmerButton9.UseVisualStyleBackColor = true;
-            this.nubmerButton9.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButton9.Location = new System.Drawing.Point(178, 330);
+            this.numberButton9.Name = "numberButton9";
+            this.numberButton9.Size = new System.Drawing.Size(50, 50);
+            this.numberButton9.TabIndex = 5;
+            this.numberButton9.Text = "9";
+            this.numberButton9.UseVisualStyleBackColor = true;
+            this.numberButton9.Click += new System.EventHandler(this.ButtonClick);
             // 
-            // nubmerButton6
+            // numberButton6
             // 
-            this.nubmerButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nubmerButton6.Location = new System.Drawing.Point(178, 386);
-            this.nubmerButton6.Name = "nubmerButton6";
-            this.nubmerButton6.Size = new System.Drawing.Size(50, 50);
-            this.nubmerButton6.TabIndex = 8;
-            this.nubmerButton6.Text = "6";
-            this.nubmerButton6.UseVisualStyleBackColor = true;
-            this.nubmerButton6.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButton6.Location = new System.Drawing.Point(178, 386);
+            this.numberButton6.Name = "numberButton6";
+            this.numberButton6.Size = new System.Drawing.Size(50, 50);
+            this.numberButton6.TabIndex = 8;
+            this.numberButton6.Text = "6";
+            this.numberButton6.UseVisualStyleBackColor = true;
+            this.numberButton6.Click += new System.EventHandler(this.ButtonClick);
             // 
-            // nubmerButton5
+            // numberButton5
             // 
-            this.nubmerButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nubmerButton5.Location = new System.Drawing.Point(122, 386);
-            this.nubmerButton5.Name = "nubmerButton5";
-            this.nubmerButton5.Size = new System.Drawing.Size(50, 50);
-            this.nubmerButton5.TabIndex = 7;
-            this.nubmerButton5.Text = "5";
-            this.nubmerButton5.UseVisualStyleBackColor = true;
-            this.nubmerButton5.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButton5.Location = new System.Drawing.Point(122, 386);
+            this.numberButton5.Name = "numberButton5";
+            this.numberButton5.Size = new System.Drawing.Size(50, 50);
+            this.numberButton5.TabIndex = 7;
+            this.numberButton5.Text = "5";
+            this.numberButton5.UseVisualStyleBackColor = true;
+            this.numberButton5.Click += new System.EventHandler(this.ButtonClick);
             // 
-            // nubmerButton4
+            // numberButton4
             // 
-            this.nubmerButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nubmerButton4.Location = new System.Drawing.Point(66, 386);
-            this.nubmerButton4.Name = "nubmerButton4";
-            this.nubmerButton4.Size = new System.Drawing.Size(50, 50);
-            this.nubmerButton4.TabIndex = 6;
-            this.nubmerButton4.Text = "4";
-            this.nubmerButton4.UseVisualStyleBackColor = true;
-            this.nubmerButton4.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButton4.Location = new System.Drawing.Point(66, 386);
+            this.numberButton4.Name = "numberButton4";
+            this.numberButton4.Size = new System.Drawing.Size(50, 50);
+            this.numberButton4.TabIndex = 6;
+            this.numberButton4.Text = "4";
+            this.numberButton4.UseVisualStyleBackColor = true;
+            this.numberButton4.Click += new System.EventHandler(this.ButtonClick);
             // 
-            // nubmerButton3
+            // numberButton3
             // 
-            this.nubmerButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nubmerButton3.Location = new System.Drawing.Point(178, 442);
-            this.nubmerButton3.Name = "nubmerButton3";
-            this.nubmerButton3.Size = new System.Drawing.Size(50, 50);
-            this.nubmerButton3.TabIndex = 11;
-            this.nubmerButton3.Text = "3";
-            this.nubmerButton3.UseVisualStyleBackColor = true;
-            this.nubmerButton3.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButton3.Location = new System.Drawing.Point(178, 442);
+            this.numberButton3.Name = "numberButton3";
+            this.numberButton3.Size = new System.Drawing.Size(50, 50);
+            this.numberButton3.TabIndex = 11;
+            this.numberButton3.Text = "3";
+            this.numberButton3.UseVisualStyleBackColor = true;
+            this.numberButton3.Click += new System.EventHandler(this.ButtonClick);
             // 
-            // nubmerButton2
+            // numberButton2
             // 
-            this.nubmerButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nubmerButton2.Location = new System.Drawing.Point(122, 442);
-            this.nubmerButton2.Name = "nubmerButton2";
-            this.nubmerButton2.Size = new System.Drawing.Size(50, 50);
-            this.nubmerButton2.TabIndex = 10;
-            this.nubmerButton2.Text = "2";
-            this.nubmerButton2.UseVisualStyleBackColor = true;
-            this.nubmerButton2.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButton2.Location = new System.Drawing.Point(122, 442);
+            this.numberButton2.Name = "numberButton2";
+            this.numberButton2.Size = new System.Drawing.Size(50, 50);
+            this.numberButton2.TabIndex = 10;
+            this.numberButton2.Text = "2";
+            this.numberButton2.UseVisualStyleBackColor = true;
+            this.numberButton2.Click += new System.EventHandler(this.ButtonClick);
             // 
-            // nubmerButton1
+            // numberButton1
             // 
-            this.nubmerButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nubmerButton1.Location = new System.Drawing.Point(66, 442);
-            this.nubmerButton1.Name = "nubmerButton1";
-            this.nubmerButton1.Size = new System.Drawing.Size(50, 50);
-            this.nubmerButton1.TabIndex = 9;
-            this.nubmerButton1.Text = "1";
-            this.nubmerButton1.UseVisualStyleBackColor = true;
-            this.nubmerButton1.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButton1.Location = new System.Drawing.Point(66, 442);
+            this.numberButton1.Name = "numberButton1";
+            this.numberButton1.Size = new System.Drawing.Size(50, 50);
+            this.numberButton1.TabIndex = 9;
+            this.numberButton1.Text = "1";
+            this.numberButton1.UseVisualStyleBackColor = true;
+            this.numberButton1.Click += new System.EventHandler(this.ButtonClick);
             // 
             // addButton
             // 
@@ -297,7 +297,7 @@ namespace KalkulatorZal
             this.equalsButton.TabIndex = 16;
             this.equalsButton.Text = "=";
             this.equalsButton.UseVisualStyleBackColor = true;
-            this.equalsButton.Click += new System.EventHandler(this.equalsButton_Click);
+            this.equalsButton.Click += new System.EventHandler(this.equalsButton_Click_1);
             // 
             // subtractButton
             // 
@@ -321,16 +321,16 @@ namespace KalkulatorZal
             this.dotButton.UseVisualStyleBackColor = true;
             this.dotButton.Click += new System.EventHandler(this.dotButton_Click);
             // 
-            // nubmerButton0
+            // numberButton0
             // 
-            this.nubmerButton0.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nubmerButton0.Location = new System.Drawing.Point(122, 498);
-            this.nubmerButton0.Name = "nubmerButton0";
-            this.nubmerButton0.Size = new System.Drawing.Size(50, 50);
-            this.nubmerButton0.TabIndex = 18;
-            this.nubmerButton0.Text = "0";
-            this.nubmerButton0.UseVisualStyleBackColor = true;
-            this.nubmerButton0.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButton0.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButton0.Location = new System.Drawing.Point(122, 498);
+            this.numberButton0.Name = "numberButton0";
+            this.numberButton0.Size = new System.Drawing.Size(50, 50);
+            this.numberButton0.TabIndex = 18;
+            this.numberButton0.Text = "0";
+            this.numberButton0.UseVisualStyleBackColor = true;
+            this.numberButton0.Click += new System.EventHandler(this.ButtonClick);
             // 
             // positiveNegativeButton
             // 
@@ -385,16 +385,16 @@ namespace KalkulatorZal
             this.displayTextBox.Size = new System.Drawing.Size(362, 48);
             this.displayTextBox.TabIndex = 23;
             // 
-            // button1
+            // powButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(322, 274);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 50);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "^";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.actionButton_Click);
+            this.powButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.powButton.Location = new System.Drawing.Point(322, 274);
+            this.powButton.Name = "powButton";
+            this.powButton.Size = new System.Drawing.Size(50, 50);
+            this.powButton.TabIndex = 28;
+            this.powButton.Text = "^";
+            this.powButton.UseVisualStyleBackColor = true;
+            this.powButton.Click += new System.EventHandler(this.actionButton_Click);
             // 
             // button2
             // 
@@ -406,15 +406,16 @@ namespace KalkulatorZal
             this.button2.Text = "cos";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // lnButton
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(322, 386);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(50, 50);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "ln";
-            this.button3.UseVisualStyleBackColor = true;
+            this.lnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lnButton.Location = new System.Drawing.Point(322, 386);
+            this.lnButton.Name = "lnButton";
+            this.lnButton.Size = new System.Drawing.Size(50, 50);
+            this.lnButton.TabIndex = 26;
+            this.lnButton.Text = "ln";
+            this.lnButton.UseVisualStyleBackColor = true;
+            this.lnButton.Click += new System.EventHandler(this.lnButton_Click);
             // 
             // button4
             // 
@@ -426,25 +427,26 @@ namespace KalkulatorZal
             this.button4.Text = "sin";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // logButton
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button5.Location = new System.Drawing.Point(322, 330);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(50, 50);
-            this.button5.TabIndex = 24;
-            this.button5.Text = "log";
-            this.button5.UseVisualStyleBackColor = true;
+            this.logButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.logButton.Location = new System.Drawing.Point(322, 330);
+            this.logButton.Name = "logButton";
+            this.logButton.Size = new System.Drawing.Size(50, 50);
+            this.logButton.TabIndex = 24;
+            this.logButton.Text = "log";
+            this.logButton.UseVisualStyleBackColor = true;
+            this.logButton.Click += new System.EventHandler(this.logButton_Click);
             // 
-            // button6
+            // sqrtButton
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button6.Location = new System.Drawing.Point(378, 274);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(50, 50);
-            this.button6.TabIndex = 33;
-            this.button6.Text = "sqrt";
-            this.button6.UseVisualStyleBackColor = true;
+            this.sqrtButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.sqrtButton.Location = new System.Drawing.Point(378, 274);
+            this.sqrtButton.Name = "sqrtButton";
+            this.sqrtButton.Size = new System.Drawing.Size(50, 50);
+            this.sqrtButton.TabIndex = 33;
+            this.sqrtButton.UseVisualStyleBackColor = true;
+            this.sqrtButton.Click += new System.EventHandler(this.sqrtButton_Click);
             // 
             // button7
             // 
@@ -456,15 +458,16 @@ namespace KalkulatorZal
             this.button7.Text = "ctg";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // reciprocalButton
             // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button8.Location = new System.Drawing.Point(378, 386);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(50, 50);
-            this.button8.TabIndex = 31;
-            this.button8.Text = "1/x";
-            this.button8.UseVisualStyleBackColor = true;
+            this.reciprocalButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.reciprocalButton.Location = new System.Drawing.Point(378, 386);
+            this.reciprocalButton.Name = "reciprocalButton";
+            this.reciprocalButton.Size = new System.Drawing.Size(50, 50);
+            this.reciprocalButton.TabIndex = 31;
+            this.reciprocalButton.Text = "1/x";
+            this.reciprocalButton.UseVisualStyleBackColor = true;
+            this.reciprocalButton.Click += new System.EventHandler(this.reciprocalButton_Click);
             // 
             // button9
             // 
@@ -476,145 +479,157 @@ namespace KalkulatorZal
             this.button9.Text = "tg";
             this.button9.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // factorialButton
             // 
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button10.Location = new System.Drawing.Point(378, 330);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(50, 50);
-            this.button10.TabIndex = 29;
-            this.button10.Text = "!";
-            this.button10.UseVisualStyleBackColor = true;
+            this.factorialButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.factorialButton.Location = new System.Drawing.Point(378, 330);
+            this.factorialButton.Name = "factorialButton";
+            this.factorialButton.Size = new System.Drawing.Size(50, 50);
+            this.factorialButton.TabIndex = 29;
+            this.factorialButton.Text = "!";
+            this.factorialButton.UseVisualStyleBackColor = true;
+            this.factorialButton.Click += new System.EventHandler(this.factorialButton_Click);
             // 
-            // radioButton1
+            // decRadioButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(87, 171);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(47, 17);
-            this.radioButton1.TabIndex = 34;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "DEC";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.decRadioButton.AutoSize = true;
+            this.decRadioButton.Checked = true;
+            this.decRadioButton.Location = new System.Drawing.Point(87, 171);
+            this.decRadioButton.Name = "decRadioButton";
+            this.decRadioButton.Size = new System.Drawing.Size(47, 17);
+            this.decRadioButton.TabIndex = 34;
+            this.decRadioButton.TabStop = true;
+            this.decRadioButton.Text = "DEC";
+            this.decRadioButton.UseVisualStyleBackColor = true;
+            this.decRadioButton.CheckedChanged += new System.EventHandler(this.decRadioButton_CheckedChanged);
             // 
-            // radioButton2
+            // hexRadioButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(178, 171);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(47, 17);
-            this.radioButton2.TabIndex = 35;
-            this.radioButton2.Text = "HEX";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.hexRadioButton.AutoSize = true;
+            this.hexRadioButton.Location = new System.Drawing.Point(178, 171);
+            this.hexRadioButton.Name = "hexRadioButton";
+            this.hexRadioButton.Size = new System.Drawing.Size(47, 17);
+            this.hexRadioButton.TabIndex = 35;
+            this.hexRadioButton.Text = "HEX";
+            this.hexRadioButton.UseVisualStyleBackColor = true;
+            this.hexRadioButton.CheckedChanged += new System.EventHandler(this.hexRadioButton_CheckedChanged);
             // 
-            // radioButton3
+            // binRadioButton
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(269, 171);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(43, 17);
-            this.radioButton3.TabIndex = 36;
-            this.radioButton3.Text = "BIN";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.binRadioButton.AutoSize = true;
+            this.binRadioButton.Location = new System.Drawing.Point(269, 171);
+            this.binRadioButton.Name = "binRadioButton";
+            this.binRadioButton.Size = new System.Drawing.Size(43, 17);
+            this.binRadioButton.TabIndex = 36;
+            this.binRadioButton.Text = "BIN";
+            this.binRadioButton.UseVisualStyleBackColor = true;
+            this.binRadioButton.CheckedChanged += new System.EventHandler(this.binRadioButton_CheckedChanged);
             // 
-            // radioButton4
+            // octRadioButton
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(360, 171);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(47, 17);
-            this.radioButton4.TabIndex = 37;
-            this.radioButton4.Text = "OCT";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.octRadioButton.AutoSize = true;
+            this.octRadioButton.Location = new System.Drawing.Point(360, 171);
+            this.octRadioButton.Name = "octRadioButton";
+            this.octRadioButton.Size = new System.Drawing.Size(47, 17);
+            this.octRadioButton.TabIndex = 37;
+            this.octRadioButton.Text = "OCT";
+            this.octRadioButton.UseVisualStyleBackColor = true;
+            this.octRadioButton.CheckedChanged += new System.EventHandler(this.octRadioButton_CheckedChanged);
             // 
-            // button11
+            // rightBracketButton
             // 
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button11.Location = new System.Drawing.Point(178, 274);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(50, 50);
-            this.button11.TabIndex = 39;
-            this.button11.Text = ")";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.ButtonClick);
+            this.rightBracketButton.Enabled = false;
+            this.rightBracketButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rightBracketButton.Location = new System.Drawing.Point(178, 274);
+            this.rightBracketButton.Name = "rightBracketButton";
+            this.rightBracketButton.Size = new System.Drawing.Size(50, 50);
+            this.rightBracketButton.TabIndex = 39;
+            this.rightBracketButton.Text = ")";
+            this.rightBracketButton.UseVisualStyleBackColor = true;
+            this.rightBracketButton.Click += new System.EventHandler(this.rightBracketButton_Click);
             // 
-            // button12
+            // leftBracketButton
             // 
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button12.Location = new System.Drawing.Point(122, 274);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(50, 50);
-            this.button12.TabIndex = 38;
-            this.button12.Text = "(";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.ButtonClick);
+            this.leftBracketButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.leftBracketButton.Location = new System.Drawing.Point(122, 274);
+            this.leftBracketButton.Name = "leftBracketButton";
+            this.leftBracketButton.Size = new System.Drawing.Size(50, 50);
+            this.leftBracketButton.TabIndex = 38;
+            this.leftBracketButton.Text = "(";
+            this.leftBracketButton.UseVisualStyleBackColor = true;
+            this.leftBracketButton.Click += new System.EventHandler(this.BracketClick);
             // 
-            // button13
+            // numberButtonE
             // 
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button13.Location = new System.Drawing.Point(10, 274);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(50, 50);
-            this.button13.TabIndex = 44;
-            this.button13.Text = "E";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButtonE.Enabled = false;
+            this.numberButtonE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButtonE.Location = new System.Drawing.Point(10, 274);
+            this.numberButtonE.Name = "numberButtonE";
+            this.numberButtonE.Size = new System.Drawing.Size(50, 50);
+            this.numberButtonE.TabIndex = 44;
+            this.numberButtonE.Text = "E";
+            this.numberButtonE.UseVisualStyleBackColor = true;
+            this.numberButtonE.Click += new System.EventHandler(this.ButtonClick);
             // 
-            // button14
+            // numberButtonA
             // 
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button14.Location = new System.Drawing.Point(10, 498);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(50, 50);
-            this.button14.TabIndex = 43;
-            this.button14.Text = "A";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButtonA.Enabled = false;
+            this.numberButtonA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButtonA.Location = new System.Drawing.Point(10, 498);
+            this.numberButtonA.Name = "numberButtonA";
+            this.numberButtonA.Size = new System.Drawing.Size(50, 50);
+            this.numberButtonA.TabIndex = 43;
+            this.numberButtonA.Text = "A";
+            this.numberButtonA.UseVisualStyleBackColor = true;
+            this.numberButtonA.Click += new System.EventHandler(this.ButtonClick);
             // 
-            // button15
+            // numberButtonB
             // 
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button15.Location = new System.Drawing.Point(10, 442);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(50, 50);
-            this.button15.TabIndex = 42;
-            this.button15.Text = "B";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButtonB.Enabled = false;
+            this.numberButtonB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButtonB.Location = new System.Drawing.Point(10, 442);
+            this.numberButtonB.Name = "numberButtonB";
+            this.numberButtonB.Size = new System.Drawing.Size(50, 50);
+            this.numberButtonB.TabIndex = 42;
+            this.numberButtonB.Text = "B";
+            this.numberButtonB.UseVisualStyleBackColor = true;
+            this.numberButtonB.Click += new System.EventHandler(this.ButtonClick);
             // 
-            // button16
+            // numberButtonC
             // 
-            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button16.Location = new System.Drawing.Point(10, 386);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(50, 50);
-            this.button16.TabIndex = 41;
-            this.button16.Text = "C";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButtonC.Enabled = false;
+            this.numberButtonC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButtonC.Location = new System.Drawing.Point(10, 386);
+            this.numberButtonC.Name = "numberButtonC";
+            this.numberButtonC.Size = new System.Drawing.Size(50, 50);
+            this.numberButtonC.TabIndex = 41;
+            this.numberButtonC.Text = "C";
+            this.numberButtonC.UseVisualStyleBackColor = true;
+            this.numberButtonC.Click += new System.EventHandler(this.ButtonClick);
             // 
-            // button17
+            // numberButtonD
             // 
-            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button17.Location = new System.Drawing.Point(10, 330);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(50, 50);
-            this.button17.TabIndex = 40;
-            this.button17.Text = "D";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButtonD.Enabled = false;
+            this.numberButtonD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButtonD.Location = new System.Drawing.Point(10, 330);
+            this.numberButtonD.Name = "numberButtonD";
+            this.numberButtonD.Size = new System.Drawing.Size(50, 50);
+            this.numberButtonD.TabIndex = 40;
+            this.numberButtonD.Text = "D";
+            this.numberButtonD.UseVisualStyleBackColor = true;
+            this.numberButtonD.Click += new System.EventHandler(this.ButtonClick);
             // 
-            // button18
+            // numberButtonF
             // 
-            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button18.Location = new System.Drawing.Point(66, 274);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(50, 50);
-            this.button18.TabIndex = 45;
-            this.button18.Text = "F";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.ButtonClick);
+            this.numberButtonF.Enabled = false;
+            this.numberButtonF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numberButtonF.Location = new System.Drawing.Point(66, 274);
+            this.numberButtonF.Name = "numberButtonF";
+            this.numberButtonF.Size = new System.Drawing.Size(50, 50);
+            this.numberButtonF.TabIndex = 45;
+            this.numberButtonF.Text = "F";
+            this.numberButtonF.UseVisualStyleBackColor = true;
+            this.numberButtonF.Click += new System.EventHandler(this.ButtonClick);
             // 
             // button19
             // 
@@ -709,49 +724,49 @@ namespace KalkulatorZal
             this.Controls.Add(this.button20);
             this.Controls.Add(this.button21);
             this.Controls.Add(this.button22);
-            this.Controls.Add(this.button18);
-            this.Controls.Add(this.button13);
-            this.Controls.Add(this.button14);
-            this.Controls.Add(this.button15);
-            this.Controls.Add(this.button16);
-            this.Controls.Add(this.button17);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.numberButtonF);
+            this.Controls.Add(this.numberButtonE);
+            this.Controls.Add(this.numberButtonA);
+            this.Controls.Add(this.numberButtonB);
+            this.Controls.Add(this.numberButtonC);
+            this.Controls.Add(this.numberButtonD);
+            this.Controls.Add(this.rightBracketButton);
+            this.Controls.Add(this.leftBracketButton);
+            this.Controls.Add(this.octRadioButton);
+            this.Controls.Add(this.binRadioButton);
+            this.Controls.Add(this.hexRadioButton);
+            this.Controls.Add(this.decRadioButton);
+            this.Controls.Add(this.sqrtButton);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.reciprocalButton);
             this.Controls.Add(this.button9);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.factorialButton);
+            this.Controls.Add(this.powButton);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.lnButton);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.logButton);
             this.Controls.Add(this.displayTextBox);
             this.Controls.Add(this.resetLastButton);
             this.Controls.Add(this.divideButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.dotButton);
-            this.Controls.Add(this.nubmerButton0);
+            this.Controls.Add(this.numberButton0);
             this.Controls.Add(this.positiveNegativeButton);
             this.Controls.Add(this.equalsButton);
             this.Controls.Add(this.subtractButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.multiplyButton);
             this.Controls.Add(this.deleteButton);
-            this.Controls.Add(this.nubmerButton3);
-            this.Controls.Add(this.nubmerButton2);
-            this.Controls.Add(this.nubmerButton1);
-            this.Controls.Add(this.nubmerButton6);
-            this.Controls.Add(this.nubmerButton5);
-            this.Controls.Add(this.nubmerButton4);
-            this.Controls.Add(this.nubmerButton9);
-            this.Controls.Add(this.nubmerButton8);
-            this.Controls.Add(this.nubmerButton7);
+            this.Controls.Add(this.numberButton3);
+            this.Controls.Add(this.numberButton2);
+            this.Controls.Add(this.numberButton1);
+            this.Controls.Add(this.numberButton6);
+            this.Controls.Add(this.numberButton5);
+            this.Controls.Add(this.numberButton4);
+            this.Controls.Add(this.numberButton9);
+            this.Controls.Add(this.numberButton8);
+            this.Controls.Add(this.numberButton7);
             this.Controls.Add(this.displayLabel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -774,50 +789,50 @@ namespace KalkulatorZal
         private System.Windows.Forms.ToolStripMenuItem szestnastkowyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem binarnyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ósemkowyToolStripMenuItem;
-        private System.Windows.Forms.Button nubmerButton7;
-        private System.Windows.Forms.Button nubmerButton8;
-        private System.Windows.Forms.Button nubmerButton9;
-        private System.Windows.Forms.Button nubmerButton6;
-        private System.Windows.Forms.Button nubmerButton5;
-        private System.Windows.Forms.Button nubmerButton4;
-        private System.Windows.Forms.Button nubmerButton3;
-        private System.Windows.Forms.Button nubmerButton2;
-        private System.Windows.Forms.Button nubmerButton1;
+        private System.Windows.Forms.Button numberButton7;
+        private System.Windows.Forms.Button numberButton8;
+        private System.Windows.Forms.Button numberButton9;
+        private System.Windows.Forms.Button numberButton6;
+        private System.Windows.Forms.Button numberButton5;
+        private System.Windows.Forms.Button numberButton4;
+        private System.Windows.Forms.Button numberButton3;
+        private System.Windows.Forms.Button numberButton2;
+        private System.Windows.Forms.Button numberButton1;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button multiplyButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button equalsButton;
         private System.Windows.Forms.Button subtractButton;
         private System.Windows.Forms.Button dotButton;
-        private System.Windows.Forms.Button nubmerButton0;
+        private System.Windows.Forms.Button numberButton0;
         private System.Windows.Forms.Button positiveNegativeButton;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button resetLastButton;
         private System.Windows.Forms.Button divideButton;
         public System.Windows.Forms.Label displayLabel;
         private System.Windows.Forms.TextBox displayTextBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button powButton;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button lnButton;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button logButton;
+        private System.Windows.Forms.Button sqrtButton;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button reciprocalButton;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button factorialButton;
+        private System.Windows.Forms.RadioButton decRadioButton;
+        private System.Windows.Forms.RadioButton hexRadioButton;
+        private System.Windows.Forms.RadioButton binRadioButton;
+        private System.Windows.Forms.RadioButton octRadioButton;
+        private System.Windows.Forms.Button rightBracketButton;
+        private System.Windows.Forms.Button leftBracketButton;
+        private System.Windows.Forms.Button numberButtonE;
+        private System.Windows.Forms.Button numberButtonA;
+        private System.Windows.Forms.Button numberButtonB;
+        private System.Windows.Forms.Button numberButtonC;
+        private System.Windows.Forms.Button numberButtonD;
+        private System.Windows.Forms.Button numberButtonF;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button21;
