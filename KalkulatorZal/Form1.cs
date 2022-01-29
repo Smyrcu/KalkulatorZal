@@ -12,18 +12,21 @@ using static KalkulatorZal.Calculate;
 
 namespace KalkulatorZal
 {
-    public partial class Form1 : Form
+    public partial class Kalkulator : Form
     {
         private bool add = false;
         bool positive = true;
         private int openBracketCounter = 0;
         private bool closedBracket = false;
-        private bool clear = false;
         static int g = 7;
+        double memory = 0;
+        private bool logicOperation = false;
+        private string system;
+
         static double[] p = {0.99999999999980993, 676.5203681218851, -1259.1392167224028,
  771.32342877765313, -176.61502916214059, 12.507343278686905,
  -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7};
-        public Form1()
+        public Kalkulator()
         {
             InitializeComponent();
         }
@@ -33,6 +36,7 @@ namespace KalkulatorZal
             sqrtButton.Text = Convert.ToChar(0x221A).ToString();
             decRadioButton.Checked = true;
             rightBracketButton.Enabled = false;
+            system = "DEC";
         }
 
         private void FontSize(int lenght)
@@ -81,6 +85,7 @@ namespace KalkulatorZal
 
         private void actionButton_Click(object sender, EventArgs e)
         {
+            
             if (closedBracket)
             {
                 displayTextBox.Text += ((Button)sender).Text;
@@ -88,11 +93,21 @@ namespace KalkulatorZal
             }
             else
             {
-                displayTextBox.Text += displayLabel.Text;
-                displayTextBox.Text += ((Button)sender).Text;
-                add = false;
-                positive = true;
-                rightBracketButton.Enabled = true;
+                if (displayTextBox.Text != string.Empty && displayLabel.Text == "0")
+                {
+                    displayTextBox.Text += ((Button)sender).Text;
+                    add = false;
+                    positive = true;
+                    rightBracketButton.Enabled = true;
+                }
+                else
+                {
+                    displayTextBox.Text += displayLabel.Text;
+                    displayTextBox.Text += ((Button)sender).Text;
+                    add = false;
+                    positive = true;
+                    rightBracketButton.Enabled = true;
+                }
             }  
         }
 
@@ -101,7 +116,7 @@ namespace KalkulatorZal
             // CALCULATE
             displayTextBox.Text += displayLabel.Text;
             
-            Calculate calculate = new Calculate(displayTextBox.Text);
+            Calculate calculate = new Calculate(displayTextBox.Text, system);
             displayTextBox.Text  = calculate.check();
             FontSize(displayLabel.Text.Length);
             displayLabel.Text = "0";
@@ -114,6 +129,8 @@ namespace KalkulatorZal
             displayTextBox.Text = "";
             add = false;
             positive = true;
+            rightBracketButton.Enabled = false;
+            openBracketCounter = 0;
             FontSize(displayLabel.Text.Length);
         }
 
@@ -136,6 +153,16 @@ namespace KalkulatorZal
             }
             else
             {
+                if (displayLabel.Text[displayLabel.Text.Length-1] == '(')
+                {
+                    rightBracketButton.Enabled = false;
+                    openBracketCounter--;
+                }
+                else if (displayLabel.Text[displayLabel.Text.Length - 1] == ')')
+                {
+                    rightBracketButton.Enabled = true;
+                    openBracketCounter++;
+                }
                 displayLabel.Text = displayLabel.Text.Remove(displayLabel.Text.Length - 1, 1);
             }
             FontSize(displayLabel.Text.Length);
@@ -156,146 +183,7 @@ namespace KalkulatorZal
             }
 
         } 
-        #region
-        /*
-                public void searchForBrackets(string equation, int index)
-                {
-                    int bracketOpenCount = 0;
-                    int indexOfLastOpenBracket = 0;
-                    for (int i = index; i < equation.Length; i++)
-                    {
-                        if (equation[i].Equals('('))
-                        {
-                            bracketOpenCount++;
-                            indexOfLastOpenBracket = i;
-                        }
-                        if (equation[i].Equals(')'))
-                        {
-                            string tempEquation = equation.Remove(0, indexOfLastOpenBracket);
-                            tempEquation = tempEquation.Remove(i - (indexOfLastOpenBracket-1), tempEquation.Length - (i - (indexOfLastOpenBracket -1 )));
-                            Priority(equation, tempEquation, 0);
-                            break;
-                        }
-
-                    }
-                    Priority(equation, equation, 0);         
-                    displayLabel.Text = equation.ToString();
-                }
-
-                private void Priority(string equation, string tempEquation, int start)
-                {
-                    char symbol;
-                    int[] numbers;
-                    int currentresult;
-                    //MessageBox.Show(equation);
-                    *//*MessageBox.Show(tempEquation);*//*
-                    for (int i = start; i < tempEquation.Length; i++)//Mnożenie
-                    {
-                        if (tempEquation[i] == '*')
-                        {
-                            symbol = tempEquation[i];
-                            numbers = FindNumbers(tempEquation, i, symbol);
-
-                            currentresult = numbers[0] * numbers[1];
-
-                            equation = equation.Replace($"({numbers[0]}{symbol}{numbers[1]})", currentresult.ToString());
-                            tempEquation = tempEquation.Replace($"({numbers[0]}{symbol}{numbers[1]})", currentresult.ToString());
-                        }
-                    }
-                    for (int i = 0; i < tempEquation.Length; i++)//Dzielenie
-                    {
-                        if (tempEquation[i] == '/')
-                        {
-                            symbol = tempEquation[i];
-                            numbers = FindNumbers(tempEquation, i, symbol);
-
-                            currentresult = numbers[0] / numbers[1];
-
-                            equation = equation.Replace($"({numbers[0]}{symbol}{numbers[1]})", currentresult.ToString());
-                            tempEquation = tempEquation.Replace($"({numbers[0]}{symbol}{numbers[1]})", currentresult.ToString());
-                        }
-                    }
-                    for (int i = start; i < tempEquation.Length; i++)//Dodawanie
-                    {
-                        if (tempEquation[i] == '+')
-                        {
-                            symbol = tempEquation[i];
-                            numbers = FindNumbers(tempEquation, i, symbol);
-
-                            currentresult = numbers[0] + numbers[1];
-
-                            equation = equation.Replace($"({numbers[0]}{symbol}{numbers[1]})", currentresult.ToString());
-                            tempEquation = tempEquation.Replace($"({numbers[0]}{symbol}{numbers[1]})", currentresult.ToString());
-
-                        }
-                    }
-                    for (int i = 0; i < tempEquation.Length; i++)//Odejmowanie
-                    {
-                        if (tempEquation[i] == '-')
-                        {
-                            symbol = tempEquation[i];
-                            numbers = FindNumbers(tempEquation, i, symbol);
-
-                            currentresult = numbers[0] - numbers[1];
-
-                            equation = equation.Replace($"({numbers[0]}{symbol}{numbers[1]})", currentresult.ToString());
-                            tempEquation = tempEquation.Replace($"({numbers[0]}{symbol}{numbers[1]})", currentresult.ToString());
-                        }
-                    }
-                    searchForSymbols(tempEquation, equation);
-                    searchForBrackets(equation, 0);
-
-                }
-
-                private static int[] FindNumbers(string equation, int start, char symbol)
-                {
-                    int[] numbers = new int[2];
-                    string number1String = string.Empty;
-                    string number2String = string.Empty;
-
-                    if (equation[start] == symbol)
-                    {
-                        for (int j = start - 1; j >= 0; j--) // Liczba z lewej
-                        { 
-                            if (char.IsDigit(equation[j]))
-                            {
-                                number1String = equation[j] + number1String;
-                            }
-                            else
-                            {
-                                break;
-                            }
-                        }
-                        for (int j = start + 1; j < equation.Length; j++) // Liczba z prawej
-                        {
-                            if (char.IsDigit(equation[j]))
-                            {
-                                number2String += equation[j];
-                            }
-                            else
-                            {
-                                break;
-                            }
-                        }
-                        numbers[0] = int.Parse(number1String);
-                        numbers[1] = int.Parse(number2String);
-                    }
-                    return numbers;
-                }
-
-                private void searchForSymbols(string tempEquation, string equation)
-                {
-                    for (int i = 0; i < tempEquation.Length; i++)//Poszukiwanie kolejnych znaków.
-                    {
-                        if (char.IsSymbol(tempEquation[i])) 
-                        {
-                            Priority(equation, tempEquation, 0);
-                        }
-                    }
-                    searchForBrackets(equation, 0);
-                }
-        */
-        #endregion
+        
         private void decRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             numberButton0.Enabled = true;
@@ -314,6 +202,10 @@ namespace KalkulatorZal
             numberButtonD.Enabled = false;
             numberButtonE.Enabled = false;
             numberButtonF.Enabled = false;
+            dotButton.Enabled = true;
+            displayTextBox.Text = string.Empty;
+            displayLabel.Text = "0";
+            system = "DEC";
         }
 
         private void hexRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -334,6 +226,10 @@ namespace KalkulatorZal
             numberButtonD.Enabled = true;
             numberButtonE.Enabled = true;
             numberButtonF.Enabled = true;
+            dotButton.Enabled = false;
+            displayTextBox.Text = string.Empty;
+            displayLabel.Text = "0";
+            system = "HEX";
         }
 
         private void binRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -354,6 +250,10 @@ namespace KalkulatorZal
             numberButtonD.Enabled = false;
             numberButtonE.Enabled = false;
             numberButtonF.Enabled = false;
+            dotButton.Enabled = false;
+            displayTextBox.Text = string.Empty;
+            displayLabel.Text = "0";
+            system = "BIN";
         }
 
         private void octRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -374,6 +274,10 @@ namespace KalkulatorZal
             numberButtonD.Enabled = false;
             numberButtonE.Enabled = false;
             numberButtonF.Enabled = false;
+            dotButton.Enabled = false;
+            displayTextBox.Text = string.Empty;
+            displayLabel.Text = "0";
+            system = "OCT";
         }
 
         private void rightBracketButton_Click(object sender, EventArgs e)
@@ -393,9 +297,13 @@ namespace KalkulatorZal
 
         private void sqrtButton_Click(object sender, EventArgs e)
         {
-            if(displayLabel.Text == "0")
+            if (displayLabel.Text == "0")
             {
                 displayTextBox.Text += "2" + ((Button)sender).Text;
+            }
+            else if (displayTextBox.Text != string.Empty && displayLabel.Text == "0")
+            {
+                displayTextBox.Text += ((Button)sender).Text;
             }
             else
             {
@@ -408,13 +316,20 @@ namespace KalkulatorZal
         {
             if (closedBracket)
             {
-                Calculate calculate = new Calculate(displayTextBox.Text);
+                Calculate calculate = new Calculate(displayTextBox.Text, system);
                 displayTextBox.Text = GammaFunc((Convert.ToDouble(calculate.check())+1)).ToString();
                 FontSize(displayLabel.Text.Length);
             }
             else
             {
-                displayTextBox.Text += GammaFunc((Convert.ToDouble(displayLabel.Text) + 1)).ToString();
+                if (add)
+                {
+                    displayTextBox.Text = GammaFunc((Convert.ToDouble(displayLabel.Text) + 1)).ToString();
+                }
+                else
+                {
+                    displayTextBox.Text += GammaFunc((Convert.ToDouble(displayLabel.Text) + 1)).ToString();
+                }
             }
         }
 
@@ -445,7 +360,7 @@ namespace KalkulatorZal
             // CALCULATE
             displayTextBox.Text += displayLabel.Text;
 
-            Calculate calculate = new Calculate(displayTextBox.Text);
+            Calculate calculate = new Calculate(displayTextBox.Text,system);
             displayTextBox.Text = calculate.check();
             FontSize(displayLabel.Text.Length);
             displayLabel.Text = "0";
@@ -459,11 +374,148 @@ namespace KalkulatorZal
             // CALCULATE
             displayTextBox.Text += displayLabel.Text;
 
-            Calculate calculate = new Calculate(displayTextBox.Text);
+            Calculate calculate = new Calculate(displayTextBox.Text, system);
             displayTextBox.Text = calculate.check();
             FontSize(displayLabel.Text.Length);
             displayLabel.Text = "0";
             add = false;
         }
+
+        private void sinButton_Click(object sender, EventArgs e)
+        {
+            displayLabel.Text = Math.Sin(Convert.ToDouble(displayLabel.Text)).ToString();
+        }
+
+        private void tgButton_Click(object sender, EventArgs e)
+        {
+            displayLabel.Text = Math.Tan(Convert.ToDouble(displayLabel.Text)).ToString();
+        }
+
+        private void cosButton_Click(object sender, EventArgs e)
+        {
+            displayLabel.Text = Math.Cos(Convert.ToDouble(displayLabel.Text)).ToString();
+        }
+
+        private void ctgButton_Click(object sender, EventArgs e)
+        {
+            displayLabel.Text = (1 / Math.Tan(Convert.ToDouble(displayLabel.Text))).ToString();
+        }
+
+        private void memoryAddButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                memory += Convert.ToDouble(displayTextBox.Text);
+            }
+            catch(FormatException)
+            {
+                Calculate calculate = new Calculate(displayTextBox.Text,system);
+                displayTextBox.Text = calculate.check();
+                FontSize(displayLabel.Text.Length);
+                displayLabel.Text = "0";
+                add = false;
+                memory += Convert.ToDouble(displayTextBox.Text);
+            }
+            
+        }
+
+        private void memorySubstractButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                memory -= Convert.ToDouble(displayTextBox.Text);
+            }
+            catch (FormatException)
+            {
+                Calculate calculate = new Calculate(displayTextBox.Text,system);
+                displayTextBox.Text = calculate.check();
+                FontSize(displayLabel.Text.Length);
+                displayLabel.Text = "0";
+                add = false;
+                memory += Convert.ToDouble(displayTextBox.Text);
+            }
+        }
+
+        private void memoryRecallButton_Click(object sender, EventArgs e)
+        {
+            displayLabel.Text = memory.ToString();
+        }
+
+        private void memoryClearButton_Click(object sender, EventArgs e)
+        {
+            memory = 0;
+        }
+
+        private void programmerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!programmerToolStripMenuItem.Checked) 
+            { 
+                programmerToolStripMenuItem.Checked = true;
+                andButton.Visible = true;
+                orButton.Visible = true;
+                notButton.Visible = true;
+                xorButton.Visible = true;
+                sqrtButton.Visible = false;
+                powButton.Visible = false;
+                logButton.Visible = false;
+                lnButton.Visible = false;
+                reciprocalButton.Visible = false;
+                factorialButton.Visible = false; 
+                sinButton.Visible = false;
+                cosButton.Visible = false;
+                tgButton.Visible = false;
+                ctgButton.Visible = false;
+                dotButton.Enabled = false;
+            }
+            else
+            {
+                programmerToolStripMenuItem.Checked = false;
+                andButton.Visible = false;
+                orButton.Visible = false;
+                notButton.Visible = false;
+                xorButton.Visible = false;
+                sqrtButton.Visible = true;
+                powButton.Visible = true;
+                logButton.Visible = true;
+                lnButton.Visible = true;
+                reciprocalButton.Visible = true;
+                factorialButton.Visible = true;
+                sinButton.Visible = true;
+                cosButton.Visible = true;
+                tgButton.Visible = true;
+                ctgButton.Visible = true;
+                dotButton.Enabled = true;
+                decRadioButton.Checked = true;
+
+            }
+            
+
+        }
+
+        private void andButton_Click(object sender, EventArgs e)
+        {
+            actionButton_Click(sender, e);
+            logicOperation = true;
+        }
+
+        private void orButton_Click(object sender, EventArgs e)
+        {
+            actionButton_Click(sender, e);
+            logicOperation = true;
+        }
+
+        private void notButton_Click(object sender, EventArgs e)
+        {
+            actionButton_Click(sender, e);
+            logicOperation = true;
+        }
+
+        private void xorButton_Click(object sender, EventArgs e)
+        {
+            actionButton_Click(sender, e);
+            logicOperation = true;
+        }
+
+
     }
 }

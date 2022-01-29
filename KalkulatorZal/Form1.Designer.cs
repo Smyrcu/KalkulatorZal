@@ -1,7 +1,7 @@
 ﻿
 namespace KalkulatorZal
 {
-    partial class Form1
+    partial class Kalkulator
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
@@ -31,10 +31,7 @@ namespace KalkulatorZal
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dziesiętnyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.szestnastkowyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.binarnyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ósemkowyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.programmerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayLabel = new System.Windows.Forms.Label();
             this.numberButton7 = new System.Windows.Forms.Button();
@@ -59,14 +56,14 @@ namespace KalkulatorZal
             this.divideButton = new System.Windows.Forms.Button();
             this.displayTextBox = new System.Windows.Forms.TextBox();
             this.powButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.cosButton = new System.Windows.Forms.Button();
             this.lnButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.sinButton = new System.Windows.Forms.Button();
             this.logButton = new System.Windows.Forms.Button();
             this.sqrtButton = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.ctgButton = new System.Windows.Forms.Button();
             this.reciprocalButton = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.tgButton = new System.Windows.Forms.Button();
             this.factorialButton = new System.Windows.Forms.Button();
             this.decRadioButton = new System.Windows.Forms.RadioButton();
             this.hexRadioButton = new System.Windows.Forms.RadioButton();
@@ -80,14 +77,14 @@ namespace KalkulatorZal
             this.numberButtonC = new System.Windows.Forms.Button();
             this.numberButtonD = new System.Windows.Forms.Button();
             this.numberButtonF = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
+            this.andButton = new System.Windows.Forms.Button();
+            this.notButton = new System.Windows.Forms.Button();
+            this.xorButton = new System.Windows.Forms.Button();
+            this.orButton = new System.Windows.Forms.Button();
+            this.memoryAddButton = new System.Windows.Forms.Button();
+            this.memoryRecallButton = new System.Windows.Forms.Button();
+            this.memorySubstractButton = new System.Windows.Forms.Button();
+            this.memoryClearButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,37 +102,17 @@ namespace KalkulatorZal
             // plikToolStripMenuItem
             // 
             this.plikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dziesiętnyToolStripMenuItem,
-            this.szestnastkowyToolStripMenuItem,
-            this.binarnyToolStripMenuItem,
-            this.ósemkowyToolStripMenuItem});
+            this.programmerToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
             this.plikToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.plikToolStripMenuItem.Text = "Plik";
             // 
-            // dziesiętnyToolStripMenuItem
+            // programmerToolStripMenuItem
             // 
-            this.dziesiętnyToolStripMenuItem.Name = "dziesiętnyToolStripMenuItem";
-            this.dziesiętnyToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.dziesiętnyToolStripMenuItem.Text = "Dziesiętny";
-            // 
-            // szestnastkowyToolStripMenuItem
-            // 
-            this.szestnastkowyToolStripMenuItem.Name = "szestnastkowyToolStripMenuItem";
-            this.szestnastkowyToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.szestnastkowyToolStripMenuItem.Text = "Szestnastkowy";
-            // 
-            // binarnyToolStripMenuItem
-            // 
-            this.binarnyToolStripMenuItem.Name = "binarnyToolStripMenuItem";
-            this.binarnyToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.binarnyToolStripMenuItem.Text = "Binarny";
-            // 
-            // ósemkowyToolStripMenuItem
-            // 
-            this.ósemkowyToolStripMenuItem.Name = "ósemkowyToolStripMenuItem";
-            this.ósemkowyToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.ósemkowyToolStripMenuItem.Text = "Ósemkowy";
+            this.programmerToolStripMenuItem.Name = "programmerToolStripMenuItem";
+            this.programmerToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.programmerToolStripMenuItem.Text = "Kalkulator Programisty";
+            this.programmerToolStripMenuItem.Click += new System.EventHandler(this.programmerToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
@@ -396,15 +373,16 @@ namespace KalkulatorZal
             this.powButton.UseVisualStyleBackColor = true;
             this.powButton.Click += new System.EventHandler(this.actionButton_Click);
             // 
-            // button2
+            // cosButton
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(322, 498);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 50);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "cos";
-            this.button2.UseVisualStyleBackColor = true;
+            this.cosButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cosButton.Location = new System.Drawing.Point(322, 498);
+            this.cosButton.Name = "cosButton";
+            this.cosButton.Size = new System.Drawing.Size(50, 50);
+            this.cosButton.TabIndex = 27;
+            this.cosButton.Text = "cos";
+            this.cosButton.UseVisualStyleBackColor = true;
+            this.cosButton.Click += new System.EventHandler(this.cosButton_Click);
             // 
             // lnButton
             // 
@@ -417,15 +395,16 @@ namespace KalkulatorZal
             this.lnButton.UseVisualStyleBackColor = true;
             this.lnButton.Click += new System.EventHandler(this.lnButton_Click);
             // 
-            // button4
+            // sinButton
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button4.Location = new System.Drawing.Point(322, 442);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(50, 50);
-            this.button4.TabIndex = 25;
-            this.button4.Text = "sin";
-            this.button4.UseVisualStyleBackColor = true;
+            this.sinButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.sinButton.Location = new System.Drawing.Point(322, 442);
+            this.sinButton.Name = "sinButton";
+            this.sinButton.Size = new System.Drawing.Size(50, 50);
+            this.sinButton.TabIndex = 25;
+            this.sinButton.Text = "sin";
+            this.sinButton.UseVisualStyleBackColor = true;
+            this.sinButton.Click += new System.EventHandler(this.sinButton_Click);
             // 
             // logButton
             // 
@@ -448,15 +427,16 @@ namespace KalkulatorZal
             this.sqrtButton.UseVisualStyleBackColor = true;
             this.sqrtButton.Click += new System.EventHandler(this.sqrtButton_Click);
             // 
-            // button7
+            // ctgButton
             // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button7.Location = new System.Drawing.Point(378, 498);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(50, 50);
-            this.button7.TabIndex = 32;
-            this.button7.Text = "ctg";
-            this.button7.UseVisualStyleBackColor = true;
+            this.ctgButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ctgButton.Location = new System.Drawing.Point(378, 498);
+            this.ctgButton.Name = "ctgButton";
+            this.ctgButton.Size = new System.Drawing.Size(50, 50);
+            this.ctgButton.TabIndex = 32;
+            this.ctgButton.Text = "ctg";
+            this.ctgButton.UseVisualStyleBackColor = true;
+            this.ctgButton.Click += new System.EventHandler(this.ctgButton_Click);
             // 
             // reciprocalButton
             // 
@@ -469,15 +449,16 @@ namespace KalkulatorZal
             this.reciprocalButton.UseVisualStyleBackColor = true;
             this.reciprocalButton.Click += new System.EventHandler(this.reciprocalButton_Click);
             // 
-            // button9
+            // tgButton
             // 
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button9.Location = new System.Drawing.Point(378, 442);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(50, 50);
-            this.button9.TabIndex = 30;
-            this.button9.Text = "tg";
-            this.button9.UseVisualStyleBackColor = true;
+            this.tgButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tgButton.Location = new System.Drawing.Point(378, 442);
+            this.tgButton.Name = "tgButton";
+            this.tgButton.Size = new System.Drawing.Size(50, 50);
+            this.tgButton.TabIndex = 30;
+            this.tgButton.Text = "tg";
+            this.tgButton.UseVisualStyleBackColor = true;
+            this.tgButton.Click += new System.EventHandler(this.tgButton_Click);
             // 
             // factorialButton
             // 
@@ -631,99 +612,111 @@ namespace KalkulatorZal
             this.numberButtonF.UseVisualStyleBackColor = true;
             this.numberButtonF.Click += new System.EventHandler(this.ButtonClick);
             // 
-            // button19
+            // andButton
             // 
-            this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button19.Location = new System.Drawing.Point(445, 303);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(59, 50);
-            this.button19.TabIndex = 49;
-            this.button19.Text = "AND";
-            this.button19.UseVisualStyleBackColor = true;
+            this.andButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.andButton.Location = new System.Drawing.Point(348, 305);
+            this.andButton.Name = "andButton";
+            this.andButton.Size = new System.Drawing.Size(59, 50);
+            this.andButton.TabIndex = 49;
+            this.andButton.Text = "AND";
+            this.andButton.UseVisualStyleBackColor = true;
+            this.andButton.Visible = false;
+            this.andButton.Click += new System.EventHandler(this.andButton_Click);
             // 
-            // button20
+            // notButton
             // 
-            this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button20.Location = new System.Drawing.Point(445, 415);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(59, 50);
-            this.button20.TabIndex = 48;
-            this.button20.Text = "NOT";
-            this.button20.UseVisualStyleBackColor = true;
+            this.notButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.notButton.Location = new System.Drawing.Point(348, 417);
+            this.notButton.Name = "notButton";
+            this.notButton.Size = new System.Drawing.Size(59, 50);
+            this.notButton.TabIndex = 48;
+            this.notButton.Text = "NOT";
+            this.notButton.UseVisualStyleBackColor = true;
+            this.notButton.Visible = false;
+            this.notButton.Click += new System.EventHandler(this.notButton_Click);
             // 
-            // button21
+            // xorButton
             // 
-            this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button21.Location = new System.Drawing.Point(445, 471);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(59, 50);
-            this.button21.TabIndex = 47;
-            this.button21.Text = "XOR";
-            this.button21.UseVisualStyleBackColor = true;
+            this.xorButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.xorButton.Location = new System.Drawing.Point(348, 473);
+            this.xorButton.Name = "xorButton";
+            this.xorButton.Size = new System.Drawing.Size(59, 50);
+            this.xorButton.TabIndex = 47;
+            this.xorButton.Text = "XOR";
+            this.xorButton.UseVisualStyleBackColor = true;
+            this.xorButton.Visible = false;
+            this.xorButton.Click += new System.EventHandler(this.xorButton_Click);
             // 
-            // button22
+            // orButton
             // 
-            this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button22.Location = new System.Drawing.Point(445, 359);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(59, 50);
-            this.button22.TabIndex = 46;
-            this.button22.Text = "OR";
-            this.button22.UseVisualStyleBackColor = true;
+            this.orButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.orButton.Location = new System.Drawing.Point(348, 361);
+            this.orButton.Name = "orButton";
+            this.orButton.Size = new System.Drawing.Size(59, 50);
+            this.orButton.TabIndex = 46;
+            this.orButton.Text = "OR";
+            this.orButton.UseVisualStyleBackColor = true;
+            this.orButton.Visible = false;
+            this.orButton.Click += new System.EventHandler(this.orButton_Click);
             // 
-            // button23
+            // memoryAddButton
             // 
-            this.button23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button23.Location = new System.Drawing.Point(269, 218);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(50, 50);
-            this.button23.TabIndex = 53;
-            this.button23.Text = "M+";
-            this.button23.UseVisualStyleBackColor = true;
+            this.memoryAddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.memoryAddButton.Location = new System.Drawing.Point(269, 218);
+            this.memoryAddButton.Name = "memoryAddButton";
+            this.memoryAddButton.Size = new System.Drawing.Size(50, 50);
+            this.memoryAddButton.TabIndex = 53;
+            this.memoryAddButton.Text = "M+";
+            this.memoryAddButton.UseVisualStyleBackColor = true;
+            this.memoryAddButton.Click += new System.EventHandler(this.memoryAddButton_Click);
             // 
-            // button24
+            // memoryRecallButton
             // 
-            this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button24.Location = new System.Drawing.Point(381, 218);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(50, 50);
-            this.button24.TabIndex = 52;
-            this.button24.Text = "MR";
-            this.button24.UseVisualStyleBackColor = true;
+            this.memoryRecallButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.memoryRecallButton.Location = new System.Drawing.Point(381, 218);
+            this.memoryRecallButton.Name = "memoryRecallButton";
+            this.memoryRecallButton.Size = new System.Drawing.Size(50, 50);
+            this.memoryRecallButton.TabIndex = 52;
+            this.memoryRecallButton.Text = "MR";
+            this.memoryRecallButton.UseVisualStyleBackColor = true;
+            this.memoryRecallButton.Click += new System.EventHandler(this.memoryRecallButton_Click);
             // 
-            // button25
+            // memorySubstractButton
             // 
-            this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button25.Location = new System.Drawing.Point(325, 218);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(50, 50);
-            this.button25.TabIndex = 51;
-            this.button25.Text = "M-";
-            this.button25.UseVisualStyleBackColor = true;
+            this.memorySubstractButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.memorySubstractButton.Location = new System.Drawing.Point(325, 218);
+            this.memorySubstractButton.Name = "memorySubstractButton";
+            this.memorySubstractButton.Size = new System.Drawing.Size(50, 50);
+            this.memorySubstractButton.TabIndex = 51;
+            this.memorySubstractButton.Text = "M-";
+            this.memorySubstractButton.UseVisualStyleBackColor = true;
+            this.memorySubstractButton.Click += new System.EventHandler(this.memorySubstractButton_Click);
             // 
-            // button26
+            // memoryClearButton
             // 
-            this.button26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button26.Location = new System.Drawing.Point(437, 218);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(50, 50);
-            this.button26.TabIndex = 50;
-            this.button26.Text = "MC";
-            this.button26.UseVisualStyleBackColor = true;
+            this.memoryClearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.memoryClearButton.Location = new System.Drawing.Point(437, 218);
+            this.memoryClearButton.Name = "memoryClearButton";
+            this.memoryClearButton.Size = new System.Drawing.Size(50, 50);
+            this.memoryClearButton.TabIndex = 50;
+            this.memoryClearButton.Text = "MC";
+            this.memoryClearButton.UseVisualStyleBackColor = true;
+            this.memoryClearButton.Click += new System.EventHandler(this.memoryClearButton_Click);
             // 
-            // Form1
+            // Kalkulator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(516, 569);
-            this.Controls.Add(this.button23);
-            this.Controls.Add(this.button24);
-            this.Controls.Add(this.button25);
-            this.Controls.Add(this.button26);
-            this.Controls.Add(this.button19);
-            this.Controls.Add(this.button20);
-            this.Controls.Add(this.button21);
-            this.Controls.Add(this.button22);
+            this.Controls.Add(this.memoryAddButton);
+            this.Controls.Add(this.memoryRecallButton);
+            this.Controls.Add(this.memorySubstractButton);
+            this.Controls.Add(this.memoryClearButton);
+            this.Controls.Add(this.andButton);
+            this.Controls.Add(this.notButton);
+            this.Controls.Add(this.xorButton);
+            this.Controls.Add(this.orButton);
             this.Controls.Add(this.numberButtonF);
             this.Controls.Add(this.numberButtonE);
             this.Controls.Add(this.numberButtonA);
@@ -737,14 +730,14 @@ namespace KalkulatorZal
             this.Controls.Add(this.hexRadioButton);
             this.Controls.Add(this.decRadioButton);
             this.Controls.Add(this.sqrtButton);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.ctgButton);
             this.Controls.Add(this.reciprocalButton);
-            this.Controls.Add(this.button9);
+            this.Controls.Add(this.tgButton);
             this.Controls.Add(this.factorialButton);
             this.Controls.Add(this.powButton);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.cosButton);
             this.Controls.Add(this.lnButton);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.sinButton);
             this.Controls.Add(this.logButton);
             this.Controls.Add(this.displayTextBox);
             this.Controls.Add(this.resetLastButton);
@@ -770,8 +763,8 @@ namespace KalkulatorZal
             this.Controls.Add(this.displayLabel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Kalkulator";
+            this.Text = "Kalkulator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -785,10 +778,7 @@ namespace KalkulatorZal
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem plikToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dziesiętnyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem szestnastkowyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem binarnyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ósemkowyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem programmerToolStripMenuItem;
         private System.Windows.Forms.Button numberButton7;
         private System.Windows.Forms.Button numberButton8;
         private System.Windows.Forms.Button numberButton9;
@@ -812,14 +802,14 @@ namespace KalkulatorZal
         public System.Windows.Forms.Label displayLabel;
         private System.Windows.Forms.TextBox displayTextBox;
         private System.Windows.Forms.Button powButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button cosButton;
         private System.Windows.Forms.Button lnButton;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button sinButton;
         private System.Windows.Forms.Button logButton;
         private System.Windows.Forms.Button sqrtButton;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button ctgButton;
         private System.Windows.Forms.Button reciprocalButton;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button tgButton;
         private System.Windows.Forms.Button factorialButton;
         private System.Windows.Forms.RadioButton decRadioButton;
         private System.Windows.Forms.RadioButton hexRadioButton;
@@ -833,14 +823,14 @@ namespace KalkulatorZal
         private System.Windows.Forms.Button numberButtonC;
         private System.Windows.Forms.Button numberButtonD;
         private System.Windows.Forms.Button numberButtonF;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.Button button24;
-        private System.Windows.Forms.Button button25;
-        private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.Button andButton;
+        private System.Windows.Forms.Button notButton;
+        private System.Windows.Forms.Button xorButton;
+        private System.Windows.Forms.Button orButton;
+        private System.Windows.Forms.Button memoryAddButton;
+        private System.Windows.Forms.Button memoryRecallButton;
+        private System.Windows.Forms.Button memorySubstractButton;
+        private System.Windows.Forms.Button memoryClearButton;
     }
 }
 

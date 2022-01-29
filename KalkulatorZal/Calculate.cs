@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
-using static KalkulatorZal.Form1;
+using static KalkulatorZal.Kalkulator;
 
 namespace KalkulatorZal
 {
@@ -13,16 +13,91 @@ namespace KalkulatorZal
     {
         public bool divisionBy0 = false;
         public string equation { get; set; }
+
+        private string system;
         public string oldPart;
         public string tempEquation;
         public int index;
         public int parenthesisCount;
         int counter = 0;
         int tester = 0;
-        public Calculate(string equation)
+        long tempResult;
+        string result;
+        public Calculate(string equation, string system)
         {
             this.equation = equation;
+            this.system = system;
             index = 0;
+        }
+
+        public string logicOperation(string operation)
+        {
+            string mark = string.Empty;
+            int i = 0;
+            string[] numbers = new string[2];
+            int[] nubmerLogic = new int[2];
+            switch (operation)
+            {
+                case "AND":
+                    mark = "&";
+                    break;
+                case "OR":
+                    mark = "|";
+                    break;
+                case "NOT":
+                    mark = "!";
+                    break;
+                case "XOR":
+                    mark = "#";
+                    break;
+            }
+
+            equation = equation.Replace(operation, mark);
+
+            while (isDigit(equation[i]))
+            {
+                numbers[0] += equation[i];
+                i++;
+            }
+            i++;
+            while (isDigit(equation[i]))
+            {
+                numbers[1] += equation[i];
+                i++;
+            }
+            switch (system)
+            {
+                case "DEC":
+                    nubmerLogic[0] = int.Parse(numbers[0]);
+                    nubmerLogic[1] = int.Parse(numbers[1]);
+                    break;
+                case "HEX":
+                    nubmerLogic[0] = Convert.ToInt32(numbers[0], 16);
+                    nubmerLogic[1] = Convert.ToInt32(numbers[1], 16);
+                    break;
+                case "BIN":
+                    nubmerLogic[0] = Convert.ToInt32(numbers[0], 2);
+                    nubmerLogic[1] = Convert.ToInt32(numbers[1], 2); 
+                    break;
+                case "OCT":
+                    nubmerLogic[0] = Convert.ToInt32(numbers[0], 8);
+                    nubmerLogic[1] = Convert.ToInt32(numbers[1], 8);
+                    break;
+            }
+
+            switch (mark)
+            {
+                case "&":
+                    break;
+                case "|":
+                    break;
+                case "!":
+                    break;
+                case "#":
+                    break;
+            }
+
+            return tempResult.ToString();
         }
 
         public string check()
@@ -41,11 +116,13 @@ namespace KalkulatorZal
             else
             {
                 parenthesisCount = open;
+                
                 return searchForBrackets();
             }
         }
-    
+
         
+
         public string searchForBrackets()
         { 
             int indexOfLastOpenBracket = 0;
@@ -129,8 +206,8 @@ namespace KalkulatorZal
         public void Priority(int start)
         {
             char symbol;
-            int[] numbers = new int[2];
-            int currentresult;
+            double[] numbers = new double[2];
+            double currentresult;
          
             for (int r = 0; r < counter; r++)
             {
@@ -141,7 +218,7 @@ namespace KalkulatorZal
                         symbol = tempEquation[i];
                         numbers = FindNumbers(i, symbol);
 
-                        currentresult = (int)Math.Pow(numbers[0],numbers[1]);
+                        currentresult = (double)Math.Pow(numbers[0],numbers[1]);
                         oldPart = $"{numbers[0]}{symbol}{numbers[1]}";
 
                         tempEquation = tempEquation.Replace($"{numbers[0]}{symbol}{numbers[1]}", currentresult.ToString());
@@ -165,7 +242,7 @@ namespace KalkulatorZal
                         symbol = tempEquation[i];
                         numbers = FindNumbers(i, symbol);
 
-                        currentresult = (int)Math.Pow(numbers[1], 1.0 / numbers[0]);
+                        currentresult = (double)Math.Pow(numbers[1], 1.0 / numbers[0]);
                         oldPart = $"{numbers[0]}{symbol}{numbers[1]}";
 
                         tempEquation = tempEquation.Replace($"{numbers[0]}{symbol}{numbers[1]}", currentresult.ToString());
@@ -286,9 +363,9 @@ namespace KalkulatorZal
             }
         }
 
-        public int[] FindNumbers(int start, char symbol)
+        public double[] FindNumbers(int start, char symbol)
         {
-            int[] numbers = new int[2];
+            double[] numbers = new double[2];
             string number1String = string.Empty;
             string number2String = string.Empty;
 
@@ -343,8 +420,8 @@ namespace KalkulatorZal
                 {
                     number1String = "2";
                 }
-                numbers[0] = int.Parse(number1String);
-                numbers[1] = int.Parse(number2String);
+                numbers[0] = Convert.ToDouble(number1String);
+                numbers[1] = Convert.ToDouble(number2String);
             }
             return numbers;
         }
@@ -397,6 +474,7 @@ namespace KalkulatorZal
                 case 'D':
                 case 'E':
                 case 'F':
+                case ',':
                     return true;
                 default:
                     return false;
