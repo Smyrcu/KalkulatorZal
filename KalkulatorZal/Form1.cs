@@ -230,6 +230,7 @@ namespace KalkulatorZal
             dotButton.Enabled = true;
             displayTextBox.Text = string.Empty;
             displayLabel.Text = "0";
+            add = false;
             system = "DEC";
         }
 
@@ -254,6 +255,7 @@ namespace KalkulatorZal
             dotButton.Enabled = false;
             displayTextBox.Text = string.Empty;
             displayLabel.Text = "0";
+            add = false;
             system = "HEX";
         }
 
@@ -278,6 +280,7 @@ namespace KalkulatorZal
             dotButton.Enabled = false;
             displayTextBox.Text = string.Empty;
             displayLabel.Text = "0";
+            add = false;
             system = "BIN";
         }
 
@@ -302,6 +305,7 @@ namespace KalkulatorZal
             dotButton.Enabled = false;
             displayTextBox.Text = string.Empty;
             displayLabel.Text = "0";
+            add = false;
             system = "OCT";
         }
 
