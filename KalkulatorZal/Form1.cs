@@ -21,6 +21,8 @@ namespace KalkulatorZal
         static int g = 7;
         double memory = 0;
         private bool logicOperation = false;
+        private string logicString = string.Empty;
+        private string logicOperator = string.Empty;
         private string system;
 
         static double[] p = {0.99999999999980993, 676.5203681218851, -1259.1392167224028,
@@ -85,38 +87,52 @@ namespace KalkulatorZal
 
         private void actionButton_Click(object sender, EventArgs e)
         {
-            
-            if (closedBracket)
+            if (logicOperation)
             {
-                displayTextBox.Text += ((Button)sender).Text;
-                closedBracket = false;
+                logicString += displayLabel.Text;
+                string[] logicNumbers = logicString.Split(',');
+                displayTextBox.Text = displayTextBox.Text.Replace($"{logicNumbers[0]}{logicOperator}{logicNumbers[1]}",
+                    new Calculate().logicOperation(logicString, logicOperator, system));
+                logicOperation = false;
             }
             else
             {
-                if (displayTextBox.Text != string.Empty && displayLabel.Text == "0")
+                if (closedBracket)
                 {
                     displayTextBox.Text += ((Button)sender).Text;
-                    add = false;
-                    positive = true;
-                    rightBracketButton.Enabled = true;
+                    closedBracket = false;
                 }
                 else
                 {
-                    displayTextBox.Text += displayLabel.Text;
-                    displayTextBox.Text += ((Button)sender).Text;
-                    add = false;
-                    positive = true;
-                    rightBracketButton.Enabled = true;
+                    if (displayTextBox.Text != string.Empty && displayLabel.Text == "0")
+                    {
+                        displayTextBox.Text += ((Button)sender).Text;
+                        add = false;
+                        positive = true;
+                        rightBracketButton.Enabled = true;
+                    }
+                    else
+                    {
+                        displayTextBox.Text += displayLabel.Text;
+                        displayTextBox.Text += ((Button)sender).Text;
+                        add = false;
+                        positive = true;
+                        rightBracketButton.Enabled = true;
+                    }
                 }
-            }  
+            }
+            
         }
 
         private void equalsButton_Click(object sender, EventArgs e)
         {
             // CALCULATE
             displayTextBox.Text += displayLabel.Text;
-            
             Calculate calculate = new Calculate(displayTextBox.Text, system);
+            if (logicOperation)
+            {
+                calculate.logicOperation("", logicOperator, system);
+            }
             displayTextBox.Text  = calculate.check();
             FontSize(displayLabel.Text.Length);
             displayLabel.Text = "0";
@@ -494,6 +510,7 @@ namespace KalkulatorZal
 
         private void andButton_Click(object sender, EventArgs e)
         {
+            logicString = displayLabel.Text + ",";
             actionButton_Click(sender, e);
             logicOperation = true;
         }
@@ -506,8 +523,7 @@ namespace KalkulatorZal
 
         private void notButton_Click(object sender, EventArgs e)
         {
-            actionButton_Click(sender, e);
-            logicOperation = true;
+            displayLabel.Text = new Calculate().negate(displayLabel.Text, system);
         }
 
         private void xorButton_Click(object sender, EventArgs e)

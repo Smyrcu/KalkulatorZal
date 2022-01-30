@@ -21,8 +21,11 @@ namespace KalkulatorZal
         public int parenthesisCount;
         int counter = 0;
         int tester = 0;
-        long tempResult;
         string result;
+        public Calculate()
+        {
+
+        }
         public Calculate(string equation, string system)
         {
             this.equation = equation;
@@ -30,74 +33,129 @@ namespace KalkulatorZal
             index = 0;
         }
 
-        public string logicOperation(string operation)
+        public string negate(string numberToNegate, string system)
         {
-            string mark = string.Empty;
-            int i = 0;
-            string[] numbers = new string[2];
-            int[] nubmerLogic = new int[2];
-            switch (operation)
-            {
-                case "AND":
-                    mark = "&";
-                    break;
-                case "OR":
-                    mark = "|";
-                    break;
-                case "NOT":
-                    mark = "!";
-                    break;
-                case "XOR":
-                    mark = "#";
-                    break;
-            }
-
-            equation = equation.Replace(operation, mark);
-
-            while (isDigit(equation[i]))
-            {
-                numbers[0] += equation[i];
-                i++;
-            }
-            i++;
-            while (isDigit(equation[i]))
-            {
-                numbers[1] += equation[i];
-                i++;
-            }
-            switch (system)
+            result = string.Empty;
+            switch (system) // na binarny
             {
                 case "DEC":
-                    nubmerLogic[0] = int.Parse(numbers[0]);
-                    nubmerLogic[1] = int.Parse(numbers[1]);
+                    numberToNegate = Convert.ToString(Convert.ToInt32(numberToNegate, 10), 2);
                     break;
                 case "HEX":
-                    nubmerLogic[0] = Convert.ToInt32(numbers[0], 16);
-                    nubmerLogic[1] = Convert.ToInt32(numbers[1], 16);
+                    numberToNegate = Convert.ToString(Convert.ToInt32(numberToNegate, 16), 2);
                     break;
                 case "BIN":
-                    nubmerLogic[0] = Convert.ToInt32(numbers[0], 2);
-                    nubmerLogic[1] = Convert.ToInt32(numbers[1], 2); 
                     break;
                 case "OCT":
-                    nubmerLogic[0] = Convert.ToInt32(numbers[0], 8);
-                    nubmerLogic[1] = Convert.ToInt32(numbers[1], 8);
+                    numberToNegate = Convert.ToString(Convert.ToInt32(numberToNegate, 8), 2);
                     break;
+
             }
 
-            switch (mark)
+            for (int k = 0; k < numberToNegate.Length; k++)
             {
-                case "&":
+                if (numberToNegate[k] == 1)
+                {
+                    result += "0";
+                }
+                else
+                {
+                    result += "1";
+                }
+            }
+            switch (system) // z binarnego
+            {
+                case "DEC":
+                    result = Convert.ToString(Convert.ToInt32(result, 2), 10);
                     break;
-                case "|":
+                case "HEX":
+                    result = Convert.ToString(Convert.ToInt32(result, 2), 16);
                     break;
-                case "!":
+                case "BIN":
                     break;
-                case "#":
+                case "OCT":
+                    result = Convert.ToString(Convert.ToInt32(result, 2), 8);
+                    break;
+
+            }
+            return result;
+        }
+
+        public string logicOperation(string operation, string operatoor, string system) 
+        {
+            string[] numbers = operation.Split(',');
+            result = string.Empty;
+
+            switch (system) // na binarny
+            {
+                case "DEC":
+                    numbers[0] = Convert.ToString(Convert.ToInt32(numbers[0], 10), 2);
+                    numbers[1] = Convert.ToString(Convert.ToInt32(numbers[1], 10), 2);
+                    break;
+                case "HEX" :
+                    numbers[0] = Convert.ToString(Convert.ToInt32(numbers[0], 16), 2);
+                    numbers[1] = Convert.ToString(Convert.ToInt32(numbers[1], 16), 2);
+                    break;
+                case "BIN" :
+                    break;
+                case "OCT" :
+                    numbers[0] = Convert.ToString(Convert.ToInt32(numbers[0], 8), 2);
+                    numbers[1] = Convert.ToString(Convert.ToInt32(numbers[1], 8), 2);
+                    break;
+
+            }
+            if (numbers[0].Length > numbers[1].Length)  // Wyrównanie długości bitowej
+            {
+                for (int j = 0; j < numbers[0].Length - numbers[1].Length; j++)
+                {
+                    numbers[1] = "0" + numbers[1];
+                }
+            }
+            else if (numbers[0].Length < numbers[1].Length)
+            {
+                for (int j = 0; j < numbers[1].Length - numbers[0].Length; j++)
+                {
+                    numbers[0] = "0" + numbers[0];
+                }
+            }
+
+            switch (operatoor)
+            {
+                case "AND":
+                    for (int k = 0; k < numbers[0].Length; k++)
+                    {
+                        result += (int.Parse(numbers[1]) & int.Parse(numbers[0])).ToString();
+                    }
+                    break;
+                case "OR":
+                    for (int k = 0; k < numbers[0].Length; k++)
+                    {
+                        result += (int.Parse(numbers[1]) | int.Parse(numbers[0])).ToString();
+                    }
+                    break;
+                case "XOR":
+                    for (int k = 0; k < numbers[0].Length; k++)
+                    {
+                        result += (int.Parse(numbers[1]) ^ int.Parse(numbers[0])).ToString();
+                    }
+                    break;
+            }
+           switch (system)
+            {
+                case "DEC":
+                    result = Convert.ToString(Convert.ToInt32(numbers[0], 2), 10);
+                    break;
+                case "HEX":
+                    result = Convert.ToString(Convert.ToInt32(numbers[0], 2), 16);
+                    break;
+                case "BIN":
+                    break;
+                case "OCT":
+                    result = Convert.ToString(Convert.ToInt32(numbers[0], 2), 8);
                     break;
             }
 
-            return tempResult.ToString();
+            return result;
         }
 
         public string check()
