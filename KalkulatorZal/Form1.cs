@@ -94,6 +94,7 @@ namespace KalkulatorZal
                 displayTextBox.Text = displayTextBox.Text.Replace($"{logicNumbers[0]}{logicOperator}{logicNumbers[1]}",
                     new Calculate().logicOperation(logicString, logicOperator, system));
                 logicOperation = false;
+                
             }
             else
             {
@@ -126,6 +127,14 @@ namespace KalkulatorZal
 
         private void equalsButton_Click(object sender, EventArgs e)
         {
+            if (logicOperation)
+            {
+                logicString += displayLabel.Text;
+                string[] logicNumbers = logicString.Split(',');
+                displayTextBox.Text = displayTextBox.Text.Replace($"{logicNumbers[0]}{logicOperator}{logicNumbers[1]}",
+                    new Calculate().logicOperation(logicString, logicOperator, system));
+                logicOperation = false;
+            }
             // CALCULATE
             displayTextBox.Text += displayLabel.Text;
             Calculate calculate = new Calculate(displayTextBox.Text, system);
@@ -387,8 +396,22 @@ namespace KalkulatorZal
 
         private void equalsButton_Click_1(object sender, EventArgs e)
         {
-            // CALCULATE
+            if (logicOperation)
+            {
+                logicString += displayLabel.Text;
+                string[] logicNumbers = logicString.Split(',');
+                /*string test1 = $"{logicNumbers[0].ToUpper()}{logicOperator}{logicNumbers[1].ToUpper()}";
+                string test2 = new Calculate().logicOperation(logicString, logicOperator, system);
+                string xd = displayTextBox.Text.Replace(test1, test2);*/
+                displayTextBox.Text = displayTextBox.Text.Replace($"{logicNumbers[0].ToUpper()}{logicOperator}",
+                    new Calculate().logicOperation(logicString, logicOperator, system));
+                logicOperation = false;
+            }
+            else
+            {
             displayTextBox.Text += displayLabel.Text;
+            }
+            // CALCULATE
 
             Calculate calculate = new Calculate(displayTextBox.Text, system);
             displayTextBox.Text = calculate.check();
@@ -513,12 +536,15 @@ namespace KalkulatorZal
             logicString = displayLabel.Text + ",";
             actionButton_Click(sender, e);
             logicOperation = true;
+            logicOperator = "AND";
         }
 
         private void orButton_Click(object sender, EventArgs e)
         {
+            logicString = displayLabel.Text + ",";
             actionButton_Click(sender, e);
             logicOperation = true;
+            logicOperator = "OR";
         }
 
         private void notButton_Click(object sender, EventArgs e)
@@ -528,8 +554,10 @@ namespace KalkulatorZal
 
         private void xorButton_Click(object sender, EventArgs e)
         {
+            logicString = displayLabel.Text + ",";
             actionButton_Click(sender, e);
             logicOperation = true;
+            logicOperator = "XOR";
         }
 
 

@@ -54,27 +54,31 @@ namespace KalkulatorZal
 
             for (int k = 0; k < numberToNegate.Length; k++)
             {
-                if (numberToNegate[k] == 1)
+                if (numberToNegate[k] == '1')
                 {
                     result += "0";
                 }
-                else
+                else if (numberToNegate[k] == '0')
                 {
                     result += "1";
                 }
             }
+            for (int k = result.Length; k<64; k++)
+            {
+                result = "1" + result; 
+            }
             switch (system) // z binarnego
             {
                 case "DEC":
-                    result = Convert.ToString(Convert.ToInt32(result, 2), 10);
+                    result = Convert.ToString(Convert.ToInt64(result, 2), 10);
                     break;
                 case "HEX":
-                    result = Convert.ToString(Convert.ToInt32(result, 2), 16);
+                    result = Convert.ToString(Convert.ToInt64(result, 2), 16);
                     break;
                 case "BIN":
                     break;
                 case "OCT":
-                    result = Convert.ToString(Convert.ToInt32(result, 2), 8);
+                    result = Convert.ToString(Convert.ToInt64(result, 2), 8);
                     break;
 
             }
@@ -124,38 +128,38 @@ namespace KalkulatorZal
                 case "AND":
                     for (int k = 0; k < numbers[0].Length; k++)
                     {
-                        result += (int.Parse(numbers[1]) & int.Parse(numbers[0])).ToString();
+                        result += (int.Parse(numbers[1][k].ToString()) & int.Parse(numbers[0][k].ToString())).ToString();
                     }
                     break;
                 case "OR":
                     for (int k = 0; k < numbers[0].Length; k++)
                     {
-                        result += (int.Parse(numbers[1]) | int.Parse(numbers[0])).ToString();
+                        result += (int.Parse(numbers[1][k].ToString()) | int.Parse(numbers[0][k].ToString())).ToString();
                     }
                     break;
                 case "XOR":
                     for (int k = 0; k < numbers[0].Length; k++)
                     {
-                        result += (int.Parse(numbers[1]) ^ int.Parse(numbers[0])).ToString();
+                        result += (int.Parse(numbers[1][k].ToString()) ^ int.Parse(numbers[0][k].ToString())).ToString();
                     }
                     break;
             }
            switch (system)
             {
                 case "DEC":
-                    result = Convert.ToString(Convert.ToInt32(numbers[0], 2), 10);
+                    result = Convert.ToString(Convert.ToInt32(result, 2), 10);
                     break;
                 case "HEX":
-                    result = Convert.ToString(Convert.ToInt32(numbers[0], 2), 16);
+                    result = Convert.ToString(Convert.ToInt32(result, 2), 16);
                     break;
                 case "BIN":
                     break;
                 case "OCT":
-                    result = Convert.ToString(Convert.ToInt32(numbers[0], 2), 8);
+                    result = Convert.ToString(Convert.ToInt32(result, 2), 8);
                     break;
             }
 
-            return result;
+            return result.ToUpper();
         }
 
         public string check()
@@ -174,8 +178,41 @@ namespace KalkulatorZal
             else
             {
                 parenthesisCount = open;
-                
-                return searchForBrackets();
+                string tempResult = searchForBrackets();
+                switch (system)
+                {
+                    case "DEC":
+                        return tempResult;
+                    case "HEX":
+                        try
+                        {
+                            return Convert.ToString(Convert.ToInt32(tempResult, 10), 16);
+                        }
+                        catch (FormatException)
+                        {
+                            return tempResult;
+                        }
+                    case "BIN":
+                        try
+                        {
+                            return Convert.ToString(Convert.ToInt32(tempResult, 10), 2);
+                        }
+                        catch (FormatException)
+                        {
+                            return tempResult;
+                        }
+                    case "OCT":
+                        try
+                        {
+                            return Convert.ToString(Convert.ToInt32(tempResult, 10), 8);
+                        }
+                        catch (FormatException)
+                        {
+                            return tempResult;
+                        }
+                }
+
+                return tempResult;
             }
         }
 
@@ -377,9 +414,34 @@ namespace KalkulatorZal
                         numbers = FindNumbers(i, symbol);
 
                         currentresult = numbers[0] + numbers[1];
-                        oldPart = $"{numbers[0]}{symbol}{numbers[1]}";
+                        //oldPart = $"{numbers[0]}{symbol}{numbers[1]}";
+                        switch (system)
+                        {
+                            case "DEC":
+                                oldPart = $"{numbers[0]}{symbol}{numbers[1]}";
+                                tempEquation = tempEquation.Replace($"{numbers[0]}{symbol}{numbers[1]}", currentresult.ToString());
+                                break;
+                            case "HEX":
+                                oldPart = $"{Convert.ToString(Convert.ToInt32(numbers[0]),16)}{symbol}{Convert.ToString(Convert.ToInt32(numbers[1]), 16)}";
+
+                                tempEquation = tempEquation.Replace($"{Convert.ToString(Convert.ToInt32(numbers[0]), 16).ToUpper()}" +
+                                    $"{symbol}{Convert.ToString(Convert.ToInt32(numbers[1]), 16).ToUpper()}", currentresult.ToString());
+                                break;
+                            case "BIN":
+                                oldPart = $"{Convert.ToString(Convert.ToInt32(numbers[0]), 2)}{symbol}{Convert.ToString(Convert.ToInt32(numbers[1]), 2)}";
+
+                                tempEquation = tempEquation.Replace($"{Convert.ToString(Convert.ToInt32(numbers[0]), 2)}" +
+                                    $"{symbol}{Convert.ToString(Convert.ToInt32(numbers[1]), 2)}", currentresult.ToString());
+                                break;
+                            case "OCT":
+                                oldPart = $"{Convert.ToString(Convert.ToInt32(numbers[0]), 8)}{symbol}{Convert.ToString(Convert.ToInt32(numbers[1]), 8)}";
+
+                                tempEquation = tempEquation.Replace($"{Convert.ToString(Convert.ToInt32(numbers[0]), 8)}" +
+                                    $"{symbol}{Convert.ToString(Convert.ToInt32(numbers[1]), 8)}", currentresult.ToString());
+                                break;
+                        }
+
                         
-                        tempEquation = tempEquation.Replace($"{numbers[0]}{symbol}{numbers[1]}", currentresult.ToString());
                         tester++;
                         if (tester == counter && parenthesisCount > 0)
                         {
@@ -388,7 +450,7 @@ namespace KalkulatorZal
                         }
                         else
                         {
-                            equation = equation.Replace(oldPart, currentresult.ToString()) ;
+                            equation = equation.Replace(oldPart.ToUpper(), currentresult.ToString()) ;
                         }
                         return;
 
@@ -478,8 +540,28 @@ namespace KalkulatorZal
                 {
                     number1String = "2";
                 }
-                numbers[0] = Convert.ToDouble(number1String);
-                numbers[1] = Convert.ToDouble(number2String);
+
+                switch (system) // na dziesietny
+                {
+                    case "DEC":
+                        numbers[0] = Convert.ToDouble(number1String);
+                        numbers[1] = Convert.ToDouble(number2String);
+                        break;
+                    case "HEX":
+                        numbers[0] = Convert.ToDouble(Convert.ToString(Convert.ToInt32(number1String, 16), 10));
+                        numbers[1] = Convert.ToDouble(Convert.ToString(Convert.ToInt32(number2String, 16), 10));
+                        break;
+                    case "BIN":
+                        numbers[0] = Convert.ToDouble(Convert.ToString(Convert.ToInt32(number1String, 2), 10));
+                        numbers[1] = Convert.ToDouble(Convert.ToString(Convert.ToInt32(number2String, 2), 10));
+                        break;
+                    case "OCT":
+                        numbers[0] = Convert.ToDouble(Convert.ToString(Convert.ToInt32(number1String, 8), 10));
+                        numbers[1] = Convert.ToDouble(Convert.ToString(Convert.ToInt32(number2String, 8), 10));
+                        break;
+
+                }
+                
             }
             return numbers;
         }
