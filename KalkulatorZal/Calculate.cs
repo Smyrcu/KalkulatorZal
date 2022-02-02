@@ -225,9 +225,7 @@ namespace KalkulatorZal
                 for (int i = index; i < equation.Length; i++)
                 {
                     if (equation[i].Equals('('))
-                    {
-                        /*                    bracketOpenCount++;
-                        */
+                    { 
                         indexOfLastOpenBracket = i;
                     }
                     if (equation[i].Equals(')'))
@@ -248,6 +246,10 @@ namespace KalkulatorZal
 
                             }
                             
+                        }
+                        if (tempEquation[0] == '(' && tempEquation[tempEquation.Length-1] == ')' && counter == 0)
+                        {
+                            tempEquation = tempEquation.Remove(0, 1).Remove(tempEquation.Length - 2, 1);
                         }
                         for (int k = 0; k<counter; k++) 
                         {

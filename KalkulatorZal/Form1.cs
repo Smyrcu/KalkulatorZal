@@ -84,12 +84,24 @@ namespace KalkulatorZal
                 displayTextBox.Text = ((Button)sender).Text;
                 rightBracketButton.Enabled = false;
                 openBracketCounter++;
+                clear = false;
             }
             else
             { 
-                displayTextBox.Text += ((Button)sender).Text;
-                rightBracketButton.Enabled = false;
-                openBracketCounter++;
+                if (displayTextBox.Text[displayTextBox.Text.Length-1] == ')')
+                {
+                    displayTextBox.Text += '*';
+                    displayTextBox.Text += ((Button)sender).Text;
+                    rightBracketButton.Enabled = false;
+                    openBracketCounter++;
+                }
+                else
+                {
+                    displayTextBox.Text += ((Button)sender).Text;
+                    rightBracketButton.Enabled = false;
+                    openBracketCounter++;
+                }
+                
             }
 
         }
@@ -442,6 +454,14 @@ namespace KalkulatorZal
             displayTextBox.Text += displayLabel.Text;
             }
             // CALCULATE
+            if (openBracketCounter > 0)
+            {
+                for (int i = openBracketCounter; i > 0; i--)
+                {
+                    displayTextBox.Text += ')';
+                    openBracketCounter--;
+                }
+            }
             string forHistory = displayTextBox.Text;
             Calculate calculate = new Calculate(displayTextBox.Text, system);
             displayTextBox.Text = calculate.check();
