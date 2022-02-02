@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static KalkulatorZal.Calculate;
+using static KalkulatorZal.History;
 
 namespace KalkulatorZal
 {
@@ -24,6 +25,8 @@ namespace KalkulatorZal
         private string logicString = string.Empty;
         private string logicOperator = string.Empty;
         private string system;
+        private List<HistoryElement> history = new List<HistoryElement>();
+        public HistoryElement backFromHistory;
 
         static double[] p = {0.99999999999980993, 676.5203681218851, -1259.1392167224028,
  771.32342877765313, -176.61502916214059, 12.507343278686905,
@@ -127,6 +130,7 @@ namespace KalkulatorZal
 
         private void equalsButton_Click(object sender, EventArgs e)
         {
+            
             if (logicOperation)
             {
                 logicString += displayLabel.Text;
@@ -137,6 +141,7 @@ namespace KalkulatorZal
             }
             // CALCULATE
             displayTextBox.Text += displayLabel.Text;
+            
             Calculate calculate = new Calculate(displayTextBox.Text, system);
             if (logicOperation)
             {
@@ -144,6 +149,7 @@ namespace KalkulatorZal
             }
             displayTextBox.Text  = calculate.check();
             FontSize(displayLabel.Text.Length);
+            
             displayLabel.Text = "0";
             add = false;
         }
@@ -404,9 +410,6 @@ namespace KalkulatorZal
             {
                 logicString += displayLabel.Text;
                 string[] logicNumbers = logicString.Split(',');
-                /*string test1 = $"{logicNumbers[0].ToUpper()}{logicOperator}{logicNumbers[1].ToUpper()}";
-                string test2 = new Calculate().logicOperation(logicString, logicOperator, system);
-                string xd = displayTextBox.Text.Replace(test1, test2);*/
                 displayTextBox.Text = displayTextBox.Text.Replace($"{logicNumbers[0].ToUpper()}{logicOperator}",
                     new Calculate().logicOperation(logicString, logicOperator, system));
                 logicOperation = false;
@@ -416,10 +419,11 @@ namespace KalkulatorZal
             displayTextBox.Text += displayLabel.Text;
             }
             // CALCULATE
-
+            string forHistory = displayTextBox.Text;
             Calculate calculate = new Calculate(displayTextBox.Text, system);
             displayTextBox.Text = calculate.check();
             FontSize(displayLabel.Text.Length);
+            history.Add(new HistoryElement(forHistory, displayTextBox.Text));
             displayLabel.Text = "0";
             add = false;
         }
@@ -492,7 +496,8 @@ namespace KalkulatorZal
         private void programmerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!programmerToolStripMenuItem.Checked) 
-            { 
+            {
+                scienceToolStripMenuItem.Checked = false;
                 programmerToolStripMenuItem.Checked = true;
                 andButton.Visible = true;
                 orButton.Visible = true;
@@ -509,9 +514,16 @@ namespace KalkulatorZal
                 tgButton.Visible = false;
                 ctgButton.Visible = false;
                 dotButton.Enabled = false;
+                decRadioButton.Checked = true;
+                decRadioButton.Visible = false;
+                hexRadioButton.Visible = false;
+                binRadioButton.Visible = false;
+                octRadioButton.Visible = false;
+
             }
             else
             {
+                scienceToolStripMenuItem.Checked = true;
                 programmerToolStripMenuItem.Checked = false;
                 andButton.Visible = false;
                 orButton.Visible = false;
@@ -529,6 +541,10 @@ namespace KalkulatorZal
                 ctgButton.Visible = true;
                 dotButton.Enabled = true;
                 decRadioButton.Checked = true;
+                decRadioButton.Visible = true;
+                hexRadioButton.Visible = true;
+                binRadioButton.Visible = true;
+                octRadioButton.Visible = true;
 
             }
             
@@ -564,6 +580,18 @@ namespace KalkulatorZal
             logicOperator = "XOR";
         }
 
+        private void historiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            History historyForm = new History(history);
+            
+            if (historyForm.ShowDialog() == DialogResult.OK)
+            {
+                backFromHistory = historyForm.model;
+                displayLabel.Text = backFromHistory.result;
+                displayTextBox.Text = backFromHistory.equation;
+            }
+            
 
+        }
     }
 }

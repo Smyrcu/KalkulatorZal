@@ -85,6 +85,8 @@ namespace KalkulatorZal
             this.memoryRecallButton = new System.Windows.Forms.Button();
             this.memorySubstractButton = new System.Windows.Forms.Button();
             this.memoryClearButton = new System.Windows.Forms.Button();
+            this.scienceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,7 +104,9 @@ namespace KalkulatorZal
             // plikToolStripMenuItem
             // 
             this.plikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.programmerToolStripMenuItem});
+            this.scienceToolStripMenuItem,
+            this.programmerToolStripMenuItem,
+            this.historiaToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
             this.plikToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.plikToolStripMenuItem.Text = "Plik";
@@ -110,8 +114,8 @@ namespace KalkulatorZal
             // programmerToolStripMenuItem
             // 
             this.programmerToolStripMenuItem.Name = "programmerToolStripMenuItem";
-            this.programmerToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.programmerToolStripMenuItem.Text = "Kalkulator Programisty";
+            this.programmerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.programmerToolStripMenuItem.Text = "Programisty";
             this.programmerToolStripMenuItem.Click += new System.EventHandler(this.programmerToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
@@ -482,6 +486,7 @@ namespace KalkulatorZal
             this.decRadioButton.TabStop = true;
             this.decRadioButton.Text = "DEC";
             this.decRadioButton.UseVisualStyleBackColor = true;
+            this.decRadioButton.Visible = false;
             this.decRadioButton.CheckedChanged += new System.EventHandler(this.decRadioButton_CheckedChanged);
             // 
             // hexRadioButton
@@ -493,6 +498,7 @@ namespace KalkulatorZal
             this.hexRadioButton.TabIndex = 35;
             this.hexRadioButton.Text = "HEX";
             this.hexRadioButton.UseVisualStyleBackColor = true;
+            this.hexRadioButton.Visible = false;
             this.hexRadioButton.CheckedChanged += new System.EventHandler(this.hexRadioButton_CheckedChanged);
             // 
             // binRadioButton
@@ -504,6 +510,7 @@ namespace KalkulatorZal
             this.binRadioButton.TabIndex = 36;
             this.binRadioButton.Text = "BIN";
             this.binRadioButton.UseVisualStyleBackColor = true;
+            this.binRadioButton.Visible = false;
             this.binRadioButton.CheckedChanged += new System.EventHandler(this.binRadioButton_CheckedChanged);
             // 
             // octRadioButton
@@ -515,6 +522,7 @@ namespace KalkulatorZal
             this.octRadioButton.TabIndex = 37;
             this.octRadioButton.Text = "OCT";
             this.octRadioButton.UseVisualStyleBackColor = true;
+            this.octRadioButton.Visible = false;
             this.octRadioButton.CheckedChanged += new System.EventHandler(this.octRadioButton_CheckedChanged);
             // 
             // rightBracketButton
@@ -704,6 +712,22 @@ namespace KalkulatorZal
             this.memoryClearButton.UseVisualStyleBackColor = true;
             this.memoryClearButton.Click += new System.EventHandler(this.memoryClearButton_Click);
             // 
+            // scienceToolStripMenuItem
+            // 
+            this.scienceToolStripMenuItem.Checked = true;
+            this.scienceToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.scienceToolStripMenuItem.Name = "scienceToolStripMenuItem";
+            this.scienceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.scienceToolStripMenuItem.Text = "Naukowy";
+            this.scienceToolStripMenuItem.Click += new System.EventHandler(this.programmerToolStripMenuItem_Click);
+            // 
+            // historiaToolStripMenuItem
+            // 
+            this.historiaToolStripMenuItem.Name = "historiaToolStripMenuItem";
+            this.historiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.historiaToolStripMenuItem.Text = "Historia";
+            this.historiaToolStripMenuItem.Click += new System.EventHandler(this.historiaToolStripMenuItem_Click);
+            // 
             // Kalkulator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -762,8 +786,11 @@ namespace KalkulatorZal
             this.Controls.Add(this.numberButton7);
             this.Controls.Add(this.displayLabel);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Kalkulator";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kalkulator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -831,6 +858,8 @@ namespace KalkulatorZal
         private System.Windows.Forms.Button memoryRecallButton;
         private System.Windows.Forms.Button memorySubstractButton;
         private System.Windows.Forms.Button memoryClearButton;
+        private System.Windows.Forms.ToolStripMenuItem scienceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem historiaToolStripMenuItem;
     }
 }
 
