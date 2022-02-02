@@ -365,6 +365,7 @@ namespace KalkulatorZal
             this.displayTextBox.Name = "displayTextBox";
             this.displayTextBox.Size = new System.Drawing.Size(362, 48);
             this.displayTextBox.TabIndex = 23;
+            this.displayTextBox.TextChanged += new System.EventHandler(this.displayTextBox_TextChanged);
             // 
             // powButton
             // 

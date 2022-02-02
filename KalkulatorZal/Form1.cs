@@ -15,22 +15,24 @@ namespace KalkulatorZal
 {
     public partial class Kalkulator : Form
     {
-        private bool add = false;
-        bool positive = true;
-        private int openBracketCounter = 0;
-        private bool closedBracket = false;
-        static int g = 7;
-        double memory = 0;
-        private bool logicOperation = false;
-        private string logicString = string.Empty;
-        private string logicOperator = string.Empty;
-        private string system;
+        private bool add = false; // Adding numbers to displayLabel
+        private bool positive = true; // Positive/negative number
+        private int openBracketCounter = 0; // bracket counter
+        private bool closedBracket = false; // if last mark in textbox is closing bracket
+        private static int g = 7; // for gamma func
+        private double memory = 0; // Calc Memory
+        private bool logicOperation = false; // for logic operations 
+        private string logicString = string.Empty; // logic operation
+        private string logicOperator = string.Empty; // logic operator (and/or/...)
+        private string system; // dec/hex/...
+        private bool clear = true; // if displayTextBox is should be overrided
+
         private List<HistoryElement> history = new List<HistoryElement>();
         public HistoryElement backFromHistory;
 
         static double[] p = {0.99999999999980993, 676.5203681218851, -1259.1392167224028,
  771.32342877765313, -176.61502916214059, 12.507343278686905,
- -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7};
+ -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7}; // for gamma func
         public Kalkulator()
         {
             InitializeComponent();
@@ -77,9 +79,19 @@ namespace KalkulatorZal
 
         private void BracketClick(object sender, EventArgs e)
         {
-            displayTextBox.Text += ((Button)sender).Text;
-            rightBracketButton.Enabled = false;
-            openBracketCounter++;
+            if (clear)
+            {
+                displayTextBox.Text = ((Button)sender).Text;
+                rightBracketButton.Enabled = false;
+                openBracketCounter++;
+            }
+            else
+            { 
+                displayTextBox.Text += ((Button)sender).Text;
+                rightBracketButton.Enabled = false;
+                openBracketCounter++;
+            }
+
         }
 
         private void dotButton_Click(object sender, EventArgs e)
@@ -114,6 +126,16 @@ namespace KalkulatorZal
                         add = false;
                         positive = true;
                         rightBracketButton.Enabled = true;
+                        clear = false;
+                    }
+                    else if (clear)
+                    {
+                        displayTextBox.Text = displayLabel.Text;
+                        displayTextBox.Text += ((Button)sender).Text;
+                        add = false;
+                        positive = true;
+                        rightBracketButton.Enabled = true;
+                        clear = false;
                     }
                     else
                     {
@@ -122,13 +144,14 @@ namespace KalkulatorZal
                         add = false;
                         positive = true;
                         rightBracketButton.Enabled = true;
+                        clear = false;
                     }
                 }
             }
             
         }
 
-        private void equalsButton_Click(object sender, EventArgs e)
+        /*private void equalsButton_Click(object sender, EventArgs e)
         {
             
             if (logicOperation)
@@ -152,7 +175,7 @@ namespace KalkulatorZal
             
             displayLabel.Text = "0";
             add = false;
-        }
+        }*/
 
         private void clearButton_Click(object sender, EventArgs e)
         {
@@ -426,6 +449,7 @@ namespace KalkulatorZal
             history.Add(new HistoryElement(forHistory, displayTextBox.Text));
             displayLabel.Text = "0";
             add = false;
+            clear = true;
         }
 
         private void sinButton_Click(object sender, EventArgs e)
@@ -592,6 +616,14 @@ namespace KalkulatorZal
             }
             
 
+        }
+
+        private void displayTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if(displayTextBox.Text == string.Empty)
+            {
+                clear = false;
+            }
         }
     }
 }
