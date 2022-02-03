@@ -137,7 +137,8 @@ namespace KalkulatorZal
                         displayTextBox.Text += ((Button)sender).Text;
                         add = false;
                         positive = true;
-                        rightBracketButton.Enabled = true;
+                        if (openBracketCounter == 0) { rightBracketButton.Enabled = false; }
+                        else { rightBracketButton.Enabled = true; }
                         clear = false;
                     }
                     else if (clear)
@@ -146,7 +147,8 @@ namespace KalkulatorZal
                         displayTextBox.Text += ((Button)sender).Text;
                         add = false;
                         positive = true;
-                        rightBracketButton.Enabled = true;
+                        if (openBracketCounter == 0) { rightBracketButton.Enabled = false; }
+                        else { rightBracketButton.Enabled = true; }
                         clear = false;
                     }
                     else
@@ -155,7 +157,8 @@ namespace KalkulatorZal
                         displayTextBox.Text += ((Button)sender).Text;
                         add = false;
                         positive = true;
-                        rightBracketButton.Enabled = true;
+                        if (openBracketCounter == 0) { rightBracketButton.Enabled = false; }
+                        else { rightBracketButton.Enabled = true; }
                         clear = false;
                     }
                 }
@@ -559,10 +562,10 @@ namespace KalkulatorZal
                 ctgButton.Visible = false;
                 dotButton.Enabled = false;
                 decRadioButton.Checked = true;
-                decRadioButton.Visible = false;
-                hexRadioButton.Visible = false;
-                binRadioButton.Visible = false;
-                octRadioButton.Visible = false;
+                decRadioButton.Visible = true;
+                hexRadioButton.Visible = true;
+                binRadioButton.Visible = true;
+                octRadioButton.Visible = true;
 
             }
             else
@@ -585,10 +588,10 @@ namespace KalkulatorZal
                 ctgButton.Visible = true;
                 dotButton.Enabled = true;
                 decRadioButton.Checked = true;
-                decRadioButton.Visible = true;
-                hexRadioButton.Visible = true;
-                binRadioButton.Visible = true;
-                octRadioButton.Visible = true;
+                decRadioButton.Visible = false;
+                hexRadioButton.Visible = false;
+                binRadioButton.Visible = false;
+                octRadioButton.Visible = false;
 
             }
             

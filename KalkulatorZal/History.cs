@@ -42,8 +42,18 @@ namespace KalkulatorZal
         {
             foreach (int i in listView1.SelectedIndices)
             {
-                ListViewItem item = listView1.SelectedItems[i-1];
-                model = new HistoryElement(item.Text, item.SubItems[0].Text);
+                if (i < 0)
+                {
+                    ListViewItem item = listView1.SelectedItems[0];
+                    model = new HistoryElement(item.Text, item.SubItems[1].Text);
+
+                }
+                else
+                {
+                    ListViewItem item = listView1.SelectedItems[i-1];
+                    model = new HistoryElement(item.Text, item.SubItems[1].Text);
+                }
+                
             }
             DialogResult = DialogResult.OK;
 

@@ -297,6 +297,13 @@ namespace KalkulatorZal
                 return "Nie można dzielić przez 0";
             }
             equation = tempEquation;
+            while (equation[0] == '(')
+            {
+                if (equation[0] == '(' && equation[equation.Length - 1] == ')' && counter == 0)
+                {
+                    equation = equation.Remove(0, 1).Remove(equation.Length - 2, 1);
+                }
+            }
             return equation;
         }
 
