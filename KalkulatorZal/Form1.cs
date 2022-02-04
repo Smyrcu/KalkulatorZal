@@ -66,11 +66,11 @@ namespace KalkulatorZal
         {
             if (add)
             {
-                displayLabel.Text += ((Button)sender).Text;
+                displayLabel.Text += ((Button)sender).Text[1];
             }
             else
             {
-                displayLabel.Text = ((Button)sender).Text;
+                displayLabel.Text = ((Button)sender).Text[1].ToString();
                 add = true;
             }
 
@@ -81,7 +81,7 @@ namespace KalkulatorZal
         {
             if (clear)
             {
-                displayTextBox.Text = ((Button)sender).Text;
+                displayTextBox.Text = ((Button)sender).Text[1].ToString();
                 rightBracketButton.Enabled = false;
                 openBracketCounter++;
                 clear = false;
@@ -91,13 +91,13 @@ namespace KalkulatorZal
                 if (displayTextBox.Text[displayTextBox.Text.Length-1] == ')')
                 {
                     displayTextBox.Text += '*';
-                    displayTextBox.Text += ((Button)sender).Text;
+                    displayTextBox.Text += ((Button)sender).Text[1];
                     rightBracketButton.Enabled = false;
                     openBracketCounter++;
                 }
                 else
                 {
-                    displayTextBox.Text += ((Button)sender).Text;
+                    displayTextBox.Text += ((Button)sender).Text[1];
                     rightBracketButton.Enabled = false;
                     openBracketCounter++;
                 }
@@ -108,7 +108,7 @@ namespace KalkulatorZal
 
         private void dotButton_Click(object sender, EventArgs e)
         {
-            displayLabel.Text += ((Button)sender).Text;
+            displayLabel.Text += ((Button)sender).Text[1];
             add = true;
         }
 
@@ -127,14 +127,21 @@ namespace KalkulatorZal
             {
                 if (closedBracket)
                 {
-                    displayTextBox.Text += ((Button)sender).Text;
+                    displayTextBox.Text += ((Button)sender).Text[1];
                     closedBracket = false;
                 }
                 else
                 {
                     if (displayTextBox.Text != string.Empty && displayLabel.Text == "0")
                     {
-                        displayTextBox.Text += ((Button)sender).Text;
+                        if (displayTextBox.Text[displayTextBox.Text.Length-1].Equals('+') || 
+                            displayTextBox.Text[displayTextBox.Text.Length - 1].Equals('-') ||
+                            displayTextBox.Text[displayTextBox.Text.Length - 1].Equals('*') ||
+                            displayTextBox.Text[displayTextBox.Text.Length - 1].Equals('/') ||
+                            displayTextBox.Text[displayTextBox.Text.Length - 1].Equals('^'))
+                        { displayTextBox.Text = displayTextBox.Text.Remove(displayTextBox.Text.Length - 1, 1); } // Anty multiple marks after first equation
+
+                        displayTextBox.Text += ((Button)sender).Text[1];
                         add = false;
                         positive = true;
                         if (openBracketCounter == 0) { rightBracketButton.Enabled = false; }
@@ -144,7 +151,7 @@ namespace KalkulatorZal
                     else if (clear)
                     {
                         displayTextBox.Text = displayLabel.Text;
-                        displayTextBox.Text += ((Button)sender).Text;
+                        displayTextBox.Text += ((Button)sender).Text[1];
                         add = false;
                         positive = true;
                         if (openBracketCounter == 0) { rightBracketButton.Enabled = false; }
@@ -154,7 +161,7 @@ namespace KalkulatorZal
                     else
                     {
                         displayTextBox.Text += displayLabel.Text;
-                        displayTextBox.Text += ((Button)sender).Text;
+                        displayTextBox.Text += ((Button)sender).Text[1];
                         add = false;
                         positive = true;
                         if (openBracketCounter == 0) { rightBracketButton.Enabled = false; }
@@ -356,7 +363,7 @@ namespace KalkulatorZal
         private void rightBracketButton_Click(object sender, EventArgs e)
         {
             displayTextBox.Text += displayLabel.Text;
-            displayTextBox.Text += ((Button)sender).Text;
+            displayTextBox.Text += ((Button)sender).Text[1];
             add = false;
             positive = true;
             openBracketCounter--;

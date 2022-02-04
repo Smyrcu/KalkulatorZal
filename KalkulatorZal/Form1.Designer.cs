@@ -31,7 +31,9 @@ namespace KalkulatorZal
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scienceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.programmerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayLabel = new System.Windows.Forms.Label();
             this.numberButton7 = new System.Windows.Forms.Button();
@@ -85,8 +87,6 @@ namespace KalkulatorZal
             this.memoryRecallButton = new System.Windows.Forms.Button();
             this.memorySubstractButton = new System.Windows.Forms.Button();
             this.memoryClearButton = new System.Windows.Forms.Button();
-            this.scienceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.historiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,12 +111,28 @@ namespace KalkulatorZal
             this.plikToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.plikToolStripMenuItem.Text = "Plik";
             // 
+            // scienceToolStripMenuItem
+            // 
+            this.scienceToolStripMenuItem.Checked = true;
+            this.scienceToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.scienceToolStripMenuItem.Name = "scienceToolStripMenuItem";
+            this.scienceToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.scienceToolStripMenuItem.Text = "Naukowy";
+            this.scienceToolStripMenuItem.Click += new System.EventHandler(this.programmerToolStripMenuItem_Click);
+            // 
             // programmerToolStripMenuItem
             // 
             this.programmerToolStripMenuItem.Name = "programmerToolStripMenuItem";
-            this.programmerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.programmerToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.programmerToolStripMenuItem.Text = "Programisty";
             this.programmerToolStripMenuItem.Click += new System.EventHandler(this.programmerToolStripMenuItem_Click);
+            // 
+            // historiaToolStripMenuItem
+            // 
+            this.historiaToolStripMenuItem.Name = "historiaToolStripMenuItem";
+            this.historiaToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.historiaToolStripMenuItem.Text = "Historia";
+            this.historiaToolStripMenuItem.Click += new System.EventHandler(this.historiaToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
@@ -144,7 +160,7 @@ namespace KalkulatorZal
             this.numberButton7.Name = "numberButton7";
             this.numberButton7.Size = new System.Drawing.Size(50, 50);
             this.numberButton7.TabIndex = 3;
-            this.numberButton7.Text = "7";
+            this.numberButton7.Text = "&7";
             this.numberButton7.UseVisualStyleBackColor = true;
             this.numberButton7.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -155,7 +171,7 @@ namespace KalkulatorZal
             this.numberButton8.Name = "numberButton8";
             this.numberButton8.Size = new System.Drawing.Size(50, 50);
             this.numberButton8.TabIndex = 4;
-            this.numberButton8.Text = "8";
+            this.numberButton8.Text = "&8";
             this.numberButton8.UseVisualStyleBackColor = true;
             this.numberButton8.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -166,7 +182,7 @@ namespace KalkulatorZal
             this.numberButton9.Name = "numberButton9";
             this.numberButton9.Size = new System.Drawing.Size(50, 50);
             this.numberButton9.TabIndex = 5;
-            this.numberButton9.Text = "9";
+            this.numberButton9.Text = "&9";
             this.numberButton9.UseVisualStyleBackColor = true;
             this.numberButton9.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -177,7 +193,7 @@ namespace KalkulatorZal
             this.numberButton6.Name = "numberButton6";
             this.numberButton6.Size = new System.Drawing.Size(50, 50);
             this.numberButton6.TabIndex = 8;
-            this.numberButton6.Text = "6";
+            this.numberButton6.Text = "&6";
             this.numberButton6.UseVisualStyleBackColor = true;
             this.numberButton6.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -188,7 +204,7 @@ namespace KalkulatorZal
             this.numberButton5.Name = "numberButton5";
             this.numberButton5.Size = new System.Drawing.Size(50, 50);
             this.numberButton5.TabIndex = 7;
-            this.numberButton5.Text = "5";
+            this.numberButton5.Text = "&5";
             this.numberButton5.UseVisualStyleBackColor = true;
             this.numberButton5.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -199,7 +215,7 @@ namespace KalkulatorZal
             this.numberButton4.Name = "numberButton4";
             this.numberButton4.Size = new System.Drawing.Size(50, 50);
             this.numberButton4.TabIndex = 6;
-            this.numberButton4.Text = "4";
+            this.numberButton4.Text = "&4";
             this.numberButton4.UseVisualStyleBackColor = true;
             this.numberButton4.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -210,7 +226,7 @@ namespace KalkulatorZal
             this.numberButton3.Name = "numberButton3";
             this.numberButton3.Size = new System.Drawing.Size(50, 50);
             this.numberButton3.TabIndex = 11;
-            this.numberButton3.Text = "3";
+            this.numberButton3.Text = "&3";
             this.numberButton3.UseVisualStyleBackColor = true;
             this.numberButton3.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -221,7 +237,7 @@ namespace KalkulatorZal
             this.numberButton2.Name = "numberButton2";
             this.numberButton2.Size = new System.Drawing.Size(50, 50);
             this.numberButton2.TabIndex = 10;
-            this.numberButton2.Text = "2";
+            this.numberButton2.Text = "&2";
             this.numberButton2.UseVisualStyleBackColor = true;
             this.numberButton2.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -232,7 +248,7 @@ namespace KalkulatorZal
             this.numberButton1.Name = "numberButton1";
             this.numberButton1.Size = new System.Drawing.Size(50, 50);
             this.numberButton1.TabIndex = 9;
-            this.numberButton1.Text = "1";
+            this.numberButton1.Text = "&1";
             this.numberButton1.UseVisualStyleBackColor = true;
             this.numberButton1.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -243,7 +259,7 @@ namespace KalkulatorZal
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(50, 50);
             this.addButton.TabIndex = 14;
-            this.addButton.Text = "+";
+            this.addButton.Text = "&+";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.actionButton_Click);
             // 
@@ -254,7 +270,7 @@ namespace KalkulatorZal
             this.multiplyButton.Name = "multiplyButton";
             this.multiplyButton.Size = new System.Drawing.Size(50, 50);
             this.multiplyButton.TabIndex = 13;
-            this.multiplyButton.Text = "*";
+            this.multiplyButton.Text = "&*";
             this.multiplyButton.UseVisualStyleBackColor = true;
             this.multiplyButton.Click += new System.EventHandler(this.actionButton_Click);
             // 
@@ -276,7 +292,7 @@ namespace KalkulatorZal
             this.equalsButton.Name = "equalsButton";
             this.equalsButton.Size = new System.Drawing.Size(50, 50);
             this.equalsButton.TabIndex = 16;
-            this.equalsButton.Text = "=";
+            this.equalsButton.Text = "&=";
             this.equalsButton.UseVisualStyleBackColor = true;
             this.equalsButton.Click += new System.EventHandler(this.equalsButton_Click_1);
             // 
@@ -287,7 +303,7 @@ namespace KalkulatorZal
             this.subtractButton.Name = "subtractButton";
             this.subtractButton.Size = new System.Drawing.Size(50, 50);
             this.subtractButton.TabIndex = 15;
-            this.subtractButton.Text = "-";
+            this.subtractButton.Text = "&-";
             this.subtractButton.UseVisualStyleBackColor = true;
             this.subtractButton.Click += new System.EventHandler(this.actionButton_Click);
             // 
@@ -298,7 +314,7 @@ namespace KalkulatorZal
             this.dotButton.Name = "dotButton";
             this.dotButton.Size = new System.Drawing.Size(50, 50);
             this.dotButton.TabIndex = 19;
-            this.dotButton.Text = ",";
+            this.dotButton.Text = "&,";
             this.dotButton.UseVisualStyleBackColor = true;
             this.dotButton.Click += new System.EventHandler(this.dotButton_Click);
             // 
@@ -309,7 +325,7 @@ namespace KalkulatorZal
             this.numberButton0.Name = "numberButton0";
             this.numberButton0.Size = new System.Drawing.Size(50, 50);
             this.numberButton0.TabIndex = 18;
-            this.numberButton0.Text = "0";
+            this.numberButton0.Text = "&0";
             this.numberButton0.UseVisualStyleBackColor = true;
             this.numberButton0.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -353,12 +369,13 @@ namespace KalkulatorZal
             this.divideButton.Name = "divideButton";
             this.divideButton.Size = new System.Drawing.Size(50, 50);
             this.divideButton.TabIndex = 21;
-            this.divideButton.Text = "/";
+            this.divideButton.Text = "&/";
             this.divideButton.UseVisualStyleBackColor = true;
             this.divideButton.Click += new System.EventHandler(this.actionButton_Click);
             // 
             // displayTextBox
             // 
+            this.displayTextBox.Enabled = false;
             this.displayTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.displayTextBox.Location = new System.Drawing.Point(66, 54);
             this.displayTextBox.Multiline = true;
@@ -534,7 +551,7 @@ namespace KalkulatorZal
             this.rightBracketButton.Name = "rightBracketButton";
             this.rightBracketButton.Size = new System.Drawing.Size(50, 50);
             this.rightBracketButton.TabIndex = 39;
-            this.rightBracketButton.Text = ")";
+            this.rightBracketButton.Text = "&)";
             this.rightBracketButton.UseVisualStyleBackColor = true;
             this.rightBracketButton.Click += new System.EventHandler(this.rightBracketButton_Click);
             // 
@@ -545,7 +562,7 @@ namespace KalkulatorZal
             this.leftBracketButton.Name = "leftBracketButton";
             this.leftBracketButton.Size = new System.Drawing.Size(50, 50);
             this.leftBracketButton.TabIndex = 38;
-            this.leftBracketButton.Text = "(";
+            this.leftBracketButton.Text = "&(";
             this.leftBracketButton.UseVisualStyleBackColor = true;
             this.leftBracketButton.Click += new System.EventHandler(this.BracketClick);
             // 
@@ -557,7 +574,7 @@ namespace KalkulatorZal
             this.numberButtonE.Name = "numberButtonE";
             this.numberButtonE.Size = new System.Drawing.Size(50, 50);
             this.numberButtonE.TabIndex = 44;
-            this.numberButtonE.Text = "E";
+            this.numberButtonE.Text = "&E";
             this.numberButtonE.UseVisualStyleBackColor = true;
             this.numberButtonE.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -569,7 +586,7 @@ namespace KalkulatorZal
             this.numberButtonA.Name = "numberButtonA";
             this.numberButtonA.Size = new System.Drawing.Size(50, 50);
             this.numberButtonA.TabIndex = 43;
-            this.numberButtonA.Text = "A";
+            this.numberButtonA.Text = "&A";
             this.numberButtonA.UseVisualStyleBackColor = true;
             this.numberButtonA.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -581,7 +598,7 @@ namespace KalkulatorZal
             this.numberButtonB.Name = "numberButtonB";
             this.numberButtonB.Size = new System.Drawing.Size(50, 50);
             this.numberButtonB.TabIndex = 42;
-            this.numberButtonB.Text = "B";
+            this.numberButtonB.Text = "&B";
             this.numberButtonB.UseVisualStyleBackColor = true;
             this.numberButtonB.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -593,7 +610,7 @@ namespace KalkulatorZal
             this.numberButtonC.Name = "numberButtonC";
             this.numberButtonC.Size = new System.Drawing.Size(50, 50);
             this.numberButtonC.TabIndex = 41;
-            this.numberButtonC.Text = "C";
+            this.numberButtonC.Text = "&C";
             this.numberButtonC.UseVisualStyleBackColor = true;
             this.numberButtonC.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -605,7 +622,7 @@ namespace KalkulatorZal
             this.numberButtonD.Name = "numberButtonD";
             this.numberButtonD.Size = new System.Drawing.Size(50, 50);
             this.numberButtonD.TabIndex = 40;
-            this.numberButtonD.Text = "D";
+            this.numberButtonD.Text = "&D";
             this.numberButtonD.UseVisualStyleBackColor = true;
             this.numberButtonD.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -617,7 +634,7 @@ namespace KalkulatorZal
             this.numberButtonF.Name = "numberButtonF";
             this.numberButtonF.Size = new System.Drawing.Size(50, 50);
             this.numberButtonF.TabIndex = 45;
-            this.numberButtonF.Text = "F";
+            this.numberButtonF.Text = "&F";
             this.numberButtonF.UseVisualStyleBackColor = true;
             this.numberButtonF.Click += new System.EventHandler(this.ButtonClick);
             // 
@@ -712,22 +729,6 @@ namespace KalkulatorZal
             this.memoryClearButton.Text = "MC";
             this.memoryClearButton.UseVisualStyleBackColor = true;
             this.memoryClearButton.Click += new System.EventHandler(this.memoryClearButton_Click);
-            // 
-            // scienceToolStripMenuItem
-            // 
-            this.scienceToolStripMenuItem.Checked = true;
-            this.scienceToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.scienceToolStripMenuItem.Name = "scienceToolStripMenuItem";
-            this.scienceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.scienceToolStripMenuItem.Text = "Naukowy";
-            this.scienceToolStripMenuItem.Click += new System.EventHandler(this.programmerToolStripMenuItem_Click);
-            // 
-            // historiaToolStripMenuItem
-            // 
-            this.historiaToolStripMenuItem.Name = "historiaToolStripMenuItem";
-            this.historiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.historiaToolStripMenuItem.Text = "Historia";
-            this.historiaToolStripMenuItem.Click += new System.EventHandler(this.historiaToolStripMenuItem_Click);
             // 
             // Kalkulator
             // 
