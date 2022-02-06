@@ -26,6 +26,15 @@ namespace KalkulatorZal
         private string logicOperator = string.Empty; // logic operator (and/or/...)
         private string system; // dec/hex/...
         private bool clear = true; // if displayTextBox is should be overrided
+        public static Kalkulator kalkulator;
+        public ToolStripMenuItem converterMenuItem;
+
+        
+        public delegate void UpdateUI(string str, string system);
+        public UpdateUI update;
+
+        public delegate void CloseConverter();
+        public CloseConverter closeConverter;
 
         private List<HistoryElement> history = new List<HistoryElement>();
         public HistoryElement backFromHistory;
@@ -36,6 +45,8 @@ namespace KalkulatorZal
         public Kalkulator()
         {
             InitializeComponent();
+            kalkulator = this;
+            converterMenuItem = konwerterToolStripMenuItem;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -459,9 +470,14 @@ namespace KalkulatorZal
                     new Calculate().logicOperation(logicString, logicOperator, system));
                 logicOperation = false;
             }
-            else
+            
+            if (!isDigit(displayTextBox.Text[displayTextBox.Text.Length-1])) 
             {
-            displayTextBox.Text += displayLabel.Text;
+                displayTextBox.Text += displayLabel.Text;
+            }
+            else if (displayTextBox.Text[displayTextBox.Text.Length - 1] != ')' && displayLabel.Text != "0")
+            {
+                displayTextBox.Text += displayLabel.Text;
             }
             // CALCULATE
             if (openBracketCounter > 0)
@@ -573,6 +589,7 @@ namespace KalkulatorZal
                 hexRadioButton.Visible = true;
                 binRadioButton.Visible = true;
                 octRadioButton.Visible = true;
+                konwerterToolStripMenuItem.Visible = true;
 
             }
             else
@@ -599,7 +616,9 @@ namespace KalkulatorZal
                 hexRadioButton.Visible = false;
                 binRadioButton.Visible = false;
                 octRadioButton.Visible = false;
-
+                konwerterToolStripMenuItem.Visible = false;
+                konwerterToolStripMenuItem.Checked = false;
+                closeConverter();
             }
             
 
@@ -634,19 +653,6 @@ namespace KalkulatorZal
             logicOperator = "XOR";
         }
 
-        private void historiaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            History historyForm = new History(history);
-            
-            if (historyForm.ShowDialog() == DialogResult.OK)
-            {
-                backFromHistory = historyForm.model;
-                displayLabel.Text = backFromHistory.result;
-                displayTextBox.Text = backFromHistory.equation;
-            }
-            
-
-        }
 
         private void displayTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -655,5 +661,79 @@ namespace KalkulatorZal
                 clear = false;
             }
         }
+        private bool isDigit(char character)
+        {
+            switch (character)
+            {
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                case 'A':
+                case 'B':
+                case 'C':
+                case 'D':
+                case 'E':
+                case 'F':
+                case ',':
+                case ')':
+                    return true;
+                default:
+                    return false;
+
+            }
+        }
+
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Thread thread = new Thread(openInfoForm);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void openInfoForm()
+        {
+            Application.Run(new InfoForm());
+        }
+
+        private void displayLabel_TextChanged(object sender, EventArgs e)
+        {
+            if (konwerterToolStripMenuItem.Checked){
+                update(displayLabel.Text, system);
+            }
+        }
+
+        private void historyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            History historyForm = new History(history);
+
+            if (historyForm.ShowDialog() == DialogResult.OK)
+            {
+                backFromHistory = historyForm.model;
+                displayLabel.Text = backFromHistory.result;
+                displayTextBox.Text = backFromHistory.equation;
+            }
+
+        }
+
+        private void konwerterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!konwerterToolStripMenuItem.Checked)
+            {
+                Converter converter = new Converter();
+                this.update += new UpdateUI(converter.UpdateLabel);
+                this.closeConverter += new CloseConverter(converter.CloseThis);
+                converter.Show();
+                konwerterToolStripMenuItem.Checked = true;
+            }
+        }
+
     }
+   
 }

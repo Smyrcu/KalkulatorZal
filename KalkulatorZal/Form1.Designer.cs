@@ -33,7 +33,8 @@ namespace KalkulatorZal
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scienceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.programmerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.historiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.widokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayLabel = new System.Windows.Forms.Label();
             this.numberButton7 = new System.Windows.Forms.Button();
@@ -87,6 +88,7 @@ namespace KalkulatorZal
             this.memoryRecallButton = new System.Windows.Forms.Button();
             this.memorySubstractButton = new System.Windows.Forms.Button();
             this.memoryClearButton = new System.Windows.Forms.Button();
+            this.konwerterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,6 +96,7 @@ namespace KalkulatorZal
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.plikToolStripMenuItem,
+            this.widokToolStripMenuItem,
             this.infoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -105,8 +108,7 @@ namespace KalkulatorZal
             // 
             this.plikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.scienceToolStripMenuItem,
-            this.programmerToolStripMenuItem,
-            this.historiaToolStripMenuItem});
+            this.programmerToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
             this.plikToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.plikToolStripMenuItem.Text = "Plik";
@@ -127,12 +129,21 @@ namespace KalkulatorZal
             this.programmerToolStripMenuItem.Text = "Programisty";
             this.programmerToolStripMenuItem.Click += new System.EventHandler(this.programmerToolStripMenuItem_Click);
             // 
-            // historiaToolStripMenuItem
+            // widokToolStripMenuItem
             // 
-            this.historiaToolStripMenuItem.Name = "historiaToolStripMenuItem";
-            this.historiaToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.historiaToolStripMenuItem.Text = "Historia";
-            this.historiaToolStripMenuItem.Click += new System.EventHandler(this.historiaToolStripMenuItem_Click);
+            this.widokToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.historyToolStripMenuItem,
+            this.konwerterToolStripMenuItem});
+            this.widokToolStripMenuItem.Name = "widokToolStripMenuItem";
+            this.widokToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.widokToolStripMenuItem.Text = "Widok";
+            // 
+            // historyToolStripMenuItem
+            // 
+            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.historyToolStripMenuItem.Text = "Historia";
+            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
@@ -140,6 +151,7 @@ namespace KalkulatorZal
             this.infoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
             this.infoToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.infoToolStripMenuItem.Text = "Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
             // displayLabel
             // 
@@ -152,6 +164,7 @@ namespace KalkulatorZal
             this.displayLabel.TabIndex = 1;
             this.displayLabel.Text = "0";
             this.displayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.displayLabel.TextChanged += new System.EventHandler(this.displayLabel_TextChanged);
             // 
             // numberButton7
             // 
@@ -730,6 +743,14 @@ namespace KalkulatorZal
             this.memoryClearButton.UseVisualStyleBackColor = true;
             this.memoryClearButton.Click += new System.EventHandler(this.memoryClearButton_Click);
             // 
+            // konwerterToolStripMenuItem
+            // 
+            this.konwerterToolStripMenuItem.Name = "konwerterToolStripMenuItem";
+            this.konwerterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.konwerterToolStripMenuItem.Text = "Konwerter";
+            this.konwerterToolStripMenuItem.Visible = false;
+            this.konwerterToolStripMenuItem.Click += new System.EventHandler(this.konwerterToolStripMenuItem_Click);
+            // 
             // Kalkulator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -861,7 +882,9 @@ namespace KalkulatorZal
         private System.Windows.Forms.Button memorySubstractButton;
         private System.Windows.Forms.Button memoryClearButton;
         private System.Windows.Forms.ToolStripMenuItem scienceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem historiaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem widokToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem konwerterToolStripMenuItem;
     }
 }
 
