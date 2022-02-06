@@ -184,32 +184,6 @@ namespace KalkulatorZal
             
         }
 
-        /*private void equalsButton_Click(object sender, EventArgs e)
-        {
-            
-            if (logicOperation)
-            {
-                logicString += displayLabel.Text;
-                string[] logicNumbers = logicString.Split(',');
-                displayTextBox.Text = displayTextBox.Text.Replace($"{logicNumbers[0]}{logicOperator}{logicNumbers[1]}",
-                    new Calculate().logicOperation(logicString, logicOperator, system));
-                logicOperation = false;
-            }
-            // CALCULATE
-            displayTextBox.Text += displayLabel.Text;
-            
-            Calculate calculate = new Calculate(displayTextBox.Text, system);
-            if (logicOperation)
-            {
-                calculate.logicOperation("", logicOperator, system);
-            }
-            displayTextBox.Text  = calculate.check();
-            FontSize(displayLabel.Text.Length);
-            
-            displayLabel.Text = "0";
-            add = false;
-        }*/
-
         private void clearButton_Click(object sender, EventArgs e)
         {
             displayLabel.Text = "0";
